@@ -1,2 +1,2 @@
 # SpringMVC
-SpringMVC
+SpringMVC + MyBatis + tiles + JSTL
