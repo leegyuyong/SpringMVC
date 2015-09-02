@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.cylearn.service.BoardService">
+	<!--
+	  # DB 결과 데이터 객체에 매핑
+	  # jdbcType="CLOB"
+	-->
+	<resultMap id="boardMap" type="hashMap">
+		<result property="CONTENT" column="CONTENT" javaType="java.lang.String" jdbcType="CLOB" />
+		<result property="ACONTENT" column="ACONTENT" javaType="java.lang.String" jdbcType="CLOB" />
+	</resultMap>
+
+	<!-- 게시판 목록 조회 -->
+	<select id="selectList" parameterType="hashMap" resultType="hashMap">
+		/* selectList */
+		SELECT *
+		  FROM (SELECT ROWNUM RNUM, A.*
+		          FROM (  SELECT A.TABSEQ
+		                       , A.TYPE
+		                       , A.GRCODE
+		                       , A.COMP
+		                       , A.SUBJ
+		                       , A.YEAR
+		                       , A.SUBJSEQ
+		                       , B.SEQ
+		                       , B.USERID
+		                       , B.NAME
+		                       , B.TITLE
+		                       , TO_CHAR( TO_DATE( B.INDATE, 'yyyymmddhh24miss' ), 'YYYY.MM.DD' ) INDATE
+		                       , ROUND( SYSDATE - TO_DATE( B.INDATE, 'yyyymmddhh24miss' ) ) DAY_CNT
+		                       , B.CNT
+		                       , B.REFSEQ
+		                       , B.LEVELS
+		                       , B.POSITION
+		                       , B.ISOPEN
+		                       , B.ORIGIN_USERID
+		                       , B.ISIMPORT
+		                       , B.GADMIN
+		                       , DECODE( B.GADMIN,  'P1', '강사',  'A1', '운영자',  B.NAME ) GADMIN_NM
+		                       , COUNT( C.REALFILE ) UPFILECNT
+		                       , COUNT( D.COMSEQ ) COMCNT
+		                    FROM TZ_BDS A
+		                       , TZ_BOARD B
+		                       , TZ_BOARDFILE C
+		                       , TZ_BOARD_COMMENT D
+		                   WHERE 1 = 1
+		                     AND A.TABSEQ = B.TABSEQ
+		                     AND B.TABSEQ = C.TABSEQ(+)
+		                     AND B.SEQ = C.SEQ(+)
+		                     AND B.TABSEQ = D.TABSEQ(+)
+		                     AND B.SEQ = D.SEQ(+)
+		                     AND A.TABSEQ = #{tabseq}
+		                     <if test="searchtext != null and searchtext != ''">
+		                         <if test="search == 'name'">
+		                     AND LOWER(B.NAME) LIKE '%' || LOWER (#{searchtext}) || '%'
+		                         </if>
+		                         <if test="search == 'title'">
+		                     AND LOWER(B.TITLE) LIKE '%' || LOWER (#{searchtext}) || '%'
+		                         </if>
+		                         <if test="search == 'content'">
+		                     AND LOWER(B.CONTENT) LIKE '%' || LOWER (#{searchtext}) || '%'
+		                         </if>
+		                     </if>
+		                GROUP BY A.TABSEQ
+		                       , A.TYPE
+		                       , A.GRCODE
+		                       , A.COMP
+		                       , A.SUBJ
+		                       , A.YEAR
+		                       , A.SUBJSEQ
+		                       , B.SEQ
+		                       , B.USERID
+		                       , B.NAME
+		                       , B.TITLE
+		                       , B.INDATE
+		                       , B.CNT
+		                       , B.REFSEQ
+		                       , B.LEVELS
+		                       , B.POSITION
+		                       , B.ISOPEN
+		                       , B.ORIGIN_USERID
+		                       , B.ISIMPORT
+		                       , B.GADMIN
+		                       , DECODE( B.GADMIN,  'P1', '강사',  'A1', '운영자',  B.NAME )
+		                ORDER BY B.ISIMPORT DESC
+		                       , B.REFSEQ DESC
+		                       , B.POSITION ASC
+		                       , B.INDATE DESC) A
+		         WHERE ROWNUM <![CDATA[<]]>= #{endRow})
+		 WHERE 1 = 1
+		   AND RNUM <![CDATA[>]]>= #{startRow}
+	</select>
+
+	<!-- 게시판 목록 카운트 -->
+	<select id="selectRowCount" parameterType="hashMap" resultType="integer">
+		/* selectRowCount */
+		SELECT COUNT( * ) ROWCOUNT
+		  FROM TZ_BDS A, TZ_BOARD B
+		 WHERE 1 = 1
+		   AND A.TABSEQ = B.TABSEQ
+		   AND A.TABSEQ = #{tabseq}
+		   <if test="searchtext != null and searchtext != ''">
+		       <if test="search == 'name'">
+		   AND LOWER(B.NAME) LIKE '%' || LOWER (#{searchtext}) || '%'
+		       </if>
+		       <if test="search == 'title'">
+		   AND LOWER(B.TITLE) LIKE '%' || LOWER (#{searchtext}) || '%'
+		       </if>
+		       <if test="search == 'content'">
+		   AND LOWER(B.CONTENT) LIKE '%' || LOWER (#{searchtext}) || '%'
+		       </if>
+		   </if>
+	</select>
+
+
+
+	<!-- 게시판 상세 조회 -->
+	<select id="selectOne" parameterType="hashMap" resultMap="boardMap">
+		/* selectOne */
+		SELECT A.SEQ SEQ
+		     , A.USERID USERID
+		     , A.NAME NAME
+		     , A.TITLE TITLE
+		     , A.CONTENT CONTENT
+		     , DECODE( A.GADMIN,  'P1', '강사',  'A1', '운영자',  A.NAME ) GADMIN_NM
+		     , A.GADMIN
+		     , TO_CHAR(TO_DATE(A.INDATE,'yyyymmddhh24miss'),'YYYY.MM.DD') INDATE
+		     , A.CNT CNT
+		     , A.REFSEQ REFSEQ
+		     , A.LEVELS LEVELS
+		     , A.POSITION POSITION
+		     , ( SELECT COUNT( REALFILE )
+		           FROM TZ_BOARDFILE
+		          WHERE TABSEQ = A.TABSEQ
+		            AND SEQ = A.SEQ )
+		          UPFILECNT
+		     , A.ISIMPORT
+		     , ( SELECT DECODE( COUNT( * ), 0, 'Y', 'N' )
+		           FROM TZ_BOARD C, TZ_BOARD D
+		          WHERE C.REFSEQ = D.REFSEQ
+		            AND D.LEVELS = (C.LEVELS + 1)
+		            AND D.POSITION = (C.POSITION + 1)
+		            AND C.TABSEQ = A.TABSEQ
+		            AND C.SEQ = A.SEQ
+		            AND C.TABSEQ = D.TABSEQ )
+		          DELYN
+		     , A.ISOPEN
+		  FROM TZ_BOARD A
+		 WHERE 1 = 1
+		   AND A.TABSEQ = #{tabseq}
+		   AND A.SEQ = #{seq}
+	</select>
+
+	<!-- 게시판 상세 조회 -->
+	<select id="selectOneFileList" parameterType="hashMap" resultType="hashMap">
+		/* selectOneFileList */
+		SELECT TABSEQ
+		     , SEQ
+		     , FILESEQ
+		     , REALFILE
+		     , SAVEFILE
+		  FROM TZ_BOARDFILE
+		 WHERE 1 = 1
+		   AND TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</select>
+
+	<!-- 게시판 등록 -->
+	<insert id="insert" parameterType="hashMap">
+		<selectKey resultType="integer" keyProperty="seq" order="BEFORE">
+			SELECT NVL( MAX( SEQ ), 0 ) + 1 SEQ
+			  FROM TZ_BOARD
+			 WHERE TABSEQ = #{tabseq}
+		</selectKey>
+		/* insert */
+		INSERT INTO TZ_BOARD( TABSEQ
+		                    , SEQ
+		                    , USERID
+		                    , NAME
+		                    , INDATE
+		                    , TITLE
+		                    , CONTENT
+		                    , CNT
+		                    , REFSEQ
+		                    , LEVELS
+		                    , POSITION
+		                    , LUSERID
+		                    , LDATE
+		                    , GADMIN
+		                    , SUBJ
+		                    , YEAR
+		                    , SUBJSEQ )
+		     VALUES ( #{tabseq}
+		            , #{seq}
+		            , #{userid}
+		            , #{name}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		            , #{title}
+		            , #{content}
+		            , 0
+		            , #{seq}
+		            , 1
+		            , 1
+		            , #{userid}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		            , #{gadmin}
+		            , #{subj}
+		            , #{year}
+		            , #{subjseq} )
+	</insert>
+
+	<!-- 게시판 파일 등록 -->
+	<insert id="insertBoardFile" parameterType="hashMap">
+		<selectKey resultType="int" keyProperty="fileseq" order="BEFORE">
+			SELECT NVL( MAX( FILESEQ ), 0 ) + 1 FILESEQ
+			  FROM TZ_BOARDFILE
+			 WHERE TABSEQ = #{tabseq}
+			   AND SEQ = #{seq}
+		</selectKey>
+		/* insertBoardFile */
+		INSERT INTO TZ_BOARDFILE( TABSEQ
+		                        , SEQ
+		                        , FILESEQ
+		                        , REALFILE
+		                        , SAVEFILE
+		                        , LUSERID
+		                        , LDATE )
+		     VALUES ( #{tabseq}
+		            , #{seq}
+		            , #{fileseq}
+		            , #{realfile}
+		            , #{savefile}
+		            , #{userid}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' ) )
+	</insert>
+
+	<!-- 게시판 답변 등록 -->
+	<insert id="insertReply" parameterType="hashMap">
+		<selectKey resultType="integer" keyProperty="seq" order="BEFORE">
+			SELECT NVL( MAX( SEQ ), 0 ) + 1 SEQ
+			  FROM TZ_BOARD
+			 WHERE TABSEQ = #{tabseq}
+		</selectKey>
+		/* insertReply */
+		INSERT INTO TZ_BOARD( TABSEQ
+		                    , SEQ
+		                    , USERID
+		                    , NAME
+		                    , INDATE
+		                    , TITLE
+		                    , CONTENT
+		                    , CNT
+		                    , REFSEQ
+		                    , LEVELS
+		                    , POSITION
+		                    , LUSERID
+		                    , LDATE
+		                    , GADMIN
+		                    , SUBJ
+		                    , YEAR
+		                    , SUBJSEQ )
+		     VALUES ( #{tabseq}
+		            , #{seq}
+		            , #{userid}
+		            , #{name}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		            , #{title}
+		            , #{content}
+		            , 0
+		            , #{refseq}
+		            , #{levels}+1
+		            , #{position}+1
+		            , #{userid}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		            , #{gadmin}
+		            , #{subj}
+		            , #{year}
+		            , #{subjseq} )
+	</insert>
+
+	<!-- 게시판 답변관련 위치 수정 -->
+	<update id="updatePosition" parameterType="hashMap">
+		/* updatePosition */
+		UPDATE TZ_BOARD
+		   SET POSITION   = POSITION + 1
+		 WHERE TABSEQ = #{tabseq}
+		   AND REFSEQ = #{refseq}
+		   AND POSITION > #{position}
+	</update>
+
+	<!-- 게시판 수정 -->
+	<update id="update" parameterType="hashMap">
+		/* update */
+		UPDATE TZ_BOARD
+		   SET TITLE      = #{title}
+		     , CONTENT    = #{content}
+		     , USERID     = #{userid}
+		     , NAME       = #{name}
+		     , LUSERID    = #{userid}
+		     , LDATE      = TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		 WHERE TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</update>
+
+	<!-- 게시판 조회 건수 +1 -->
+	<update id="updateCnt" parameterType="hashMap">
+		/* updateCnt */
+		UPDATE TZ_BOARD
+		   SET CNT   = CNT + 1
+		 WHERE TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</update>
+
+	<!-- 게시판 삭제 -->
+	<delete id="delete" parameterType="hashMap">
+		/* delete */
+		DELETE FROM TZ_BOARD
+		 WHERE TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</delete>
+
+	<!-- 게시판 파일삭제 -->
+	<delete id="deleteBoardFile" parameterType="hashMap">
+		/* deleteBoardFile */
+		DELETE FROM TZ_BOARDFILE
+		 WHERE TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+		   AND FILESEQ = #{fileseq}
+	</delete>
+
+	<!-- 나의 상담 내역 -->
+	<select id="selectListMyQa" parameterType="hashMap" resultType="hashMap">
+		/* selectListMyQna */
+		SELECT *
+		  FROM (SELECT ROWNUM RNUM, A.*
+		          FROM (  SELECT A.SUBJ
+		                       , A.YEAR
+		                       , A.SUBJSEQ
+		                       , C.SUBJNM
+		                       , B.TABSEQ
+		                       , B.SEQ
+		                       , B.TITLE
+		                       , B.CONTENT
+		                       , B.UPFILE
+		                       , TO_CHAR( TO_DATE( B.INDATE, 'yyyymmddhh24miss' ), 'YYYY.MM.DD' ) INDATE
+		                       , B.CNT
+		                       , B.NAME
+		                       , ( SELECT COUNT( REALFILE )
+		                             FROM TZ_BOARDFILE
+		                            WHERE TABSEQ = B.TABSEQ
+		                              AND SEQ = B.SEQ )
+		                            UPFILECNT
+		                       , ( SELECT TITLE
+		                             FROM TZ_BOARD
+		                            WHERE REFSEQ = B.SEQ
+		                              AND TABSEQ = B.TABSEQ
+		                              AND LEVELS = '2'
+		                              AND ROWNUM <![CDATA[<]]> 2 )
+		                            ATITLE
+		                    FROM TZ_BDS A, TZ_BOARD B, TZ_SUBJ C
+		                   WHERE A.TABSEQ = B.TABSEQ
+		                     AND A.SUBJ = C.SUBJ
+		                     AND A.TYPE = 'SQ'
+		                     AND LEVELS = '1'
+		                     AND B.LUSERID = #{userid}
+		                     <if test="searchtext != null and searchtext != ''">
+		                         <if test="search == 'title'">
+		                     AND LOWER(B.TITLE) LIKE '%' || LOWER (#{searchtext}) || '%'
+		                         </if>
+		                         <if test="search == 'content'">
+		                     AND LOWER(B.CONTENT) LIKE '%' || LOWER (#{searchtext}) || '%'
+		                         </if>
+		                     </if>
+		                ORDER BY INDATE DESC) A
+		         WHERE ROWNUM <![CDATA[<]]>= #{endRow})
+		 WHERE 1 = 1
+		   AND RNUM <![CDATA[>]]>= #{startRow}
+	</select>
+
+	<!-- 나의 상담 내역 카운트 -->
+	<select id="selectRowCountMyQa" parameterType="hashMap" resultType="integer">
+		/* selectRowCount */
+		SELECT COUNT( * ) ROWCOUNT
+		  FROM TZ_BDS A, TZ_BOARD B, TZ_SUBJ C
+		 WHERE A.TABSEQ = B.TABSEQ
+		   AND A.SUBJ = C.SUBJ
+		   AND A.TYPE = 'SQ'
+		   AND LEVELS = '1'
+		   AND B.LUSERID = #{userid}
+		   <if test="searchtext != null and searchtext != ''">
+		       <if test="search == 'title'">
+		   AND LOWER(B.TITLE) LIKE '%' || LOWER (#{searchtext}) || '%'
+		       </if>
+		       <if test="search == 'content'">
+		   AND LOWER(B.CONTENT) LIKE '%' || LOWER (#{searchtext}) || '%'
+		       </if>
+		   </if>
+	</select>
+
+	<!-- 나의 상담 내역 상세 -->
+	<select id="selectOneMyQa" parameterType="hashMap" resultMap="boardMap">
+		/* selectOneMyQna */
+		SELECT A.SEQ
+		     , A.USERID
+		     , A.NAME
+		     , A.TITLE
+		     , A.CONTENT
+		     , ( CASE WHEN A.GADMIN = 'ZZ' THEN 'ZZ' WHEN A.GADMIN = 'P1' THEN '강사' ELSE '운영자' END ) GADMIN
+		     , A.GADMIN GADMIN_VALUE
+		     , TO_CHAR( TO_DATE( A.INDATE, 'yyyymmddhh24miss' ), 'YYYY.MM.DD' ) INDATE
+		     , A.CNT
+		     , A.REFSEQ
+		     , A.LEVELS
+		     , A.POSITION
+		     , A.ISIMPORT
+		     , A.ISOPEN
+		     , ( SELECT COUNT( REALFILE )
+		           FROM TZ_BOARDFILE
+		          WHERE TABSEQ = A.TABSEQ
+		            AND SEQ = A.SEQ )
+		          UPFILECNT
+		     , B.TITLE ATITLE
+		     , B.CONTENT ACONTENT
+		  FROM TZ_BOARD A
+		     , (SELECT REFSEQ
+		             , TABSEQ
+		             , TITLE
+		             , CONTENT
+		          FROM TZ_BOARD
+		         WHERE REFSEQ = #{seq}
+		           AND TABSEQ = #{tabseq}
+		           AND LEVELS = '2'
+		           AND ROWNUM <![CDATA[<]]> 2) B
+		 WHERE 1 = 1
+		   AND A.TABSEQ = B.TABSEQ(+)
+		   AND A.SEQ = B.REFSEQ(+)
+		   AND A.TABSEQ = #{tabseq}
+		   AND A.SEQ = #{seq}
+	</select>
+
+</mapper>

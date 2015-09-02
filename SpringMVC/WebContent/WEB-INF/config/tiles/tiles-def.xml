@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<!-- ############ Defined Layout ##############-->
+
+	<!-- main layout -->
+	<definition name="main_layout" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="top" value="/layout/top"/>
+		<put-attribute name="main_header" value="/layout/main_header"/>
+		<put-attribute name="contents" value=""/>
+		<put-attribute name="footer" value="/layout/footer"/>
+		<put-attribute name="analytics" value="/layout/analytics"/>
+	</definition>
+
+	<!-- sub layout -->
+	<definition name="sub_layout" template="/WEB-INF/views/layout/sub_layout.jsp">
+		<put-attribute name="top" value="/layout/top"/>
+		<put-attribute name="sub_header" value="/layout/sub_header"/>
+		<put-attribute name="contents" value=""/>
+		<put-attribute name="footer" value="/layout/footer"/>
+		<put-attribute name="analytics" value="/layout/analytics"/>
+	</definition>
+
+	<!-- popup -->
+	<definition name="popup_layout" template="/WEB-INF/views/layout/popup_layout.jsp">
+		<put-attribute name="popup_top" value="/layout/popup_top"/>
+		<put-attribute name="contents" value=""/>
+		<put-attribute name="analytics" value="/layout/analytics"/>
+	</definition>
+
+	<!-- include  -->
+	<definition name="layout_top" template="/WEB-INF/views/include/top.jsp"/>
+	<definition name="layout_popup_top" template="/WEB-INF/views/include/popup_top.jsp"/>
+	<definition name="layout_css" template="/WEB-INF/views/include/css.jsp"/>
+	<definition name="layout_main_header" template="/WEB-INF/views/include/main_header.jsp"/>
+	<definition name="layout_sub_header" template="/WEB-INF/views/include/sub_header.jsp"/>
+	<definition name="layout_footer" template="/WEB-INF/views/include/footer.jsp"/>
+	<definition name="layout_analytics" template="/WEB-INF/views/include/analytics.jsp"/>
+
+	<!-- ############ Defined Layout End ##############-->
+
+	<!--
+		############ XXX 시작 ##############
+	-->
+
+	<definition name="main_*" extends="main_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/main/main_{1}.jsp"/>
+	</definition>
+
+	<!-- sub page start -->
+	<definition name="common_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/common/common_{1}.jsp"/>
+	</definition>
+
+
+	<!-- 게시판 -->
+	<definition name="board_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/board/board_{1}.jsp"/>
+	</definition>
+
+	<!-- 홈페이지 CP Q&A -->
+	<definition name="centerboard_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/centerboard/centerboard_{1}.jsp"/>
+	</definition>
+
+	<!-- 로그인 -->
+	<definition name="login_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/login/login_{1}.jsp"/>
+	</definition>
+
+	<!-- 로그아웃 -->
+	<definition name="logout_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/logout/logout_{1}.jsp"/>
+	</definition>
+
+	<!-- 회원 팝업 -->
+	<definition name="member_*_popup" extends="popup_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/member/member_{1}_popup.jsp"/>
+	</definition>
+
+	<!-- 회원 -->
+	<definition name="member_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/member/member_{1}.jsp"/>
+	</definition>
+
+	<!-- 나의학습현황(나의강의실) -->
+	<definition name="mystudy_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/mystudy/mystudy_{1}.jsp"/>
+	</definition>
+
+	<!-- 공지사항/이벤트 -->
+	<definition name="notice_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/notice/notice_{1}.jsp"/>
+	</definition>
+
+	<!-- 수강신청 -->
+	<definition name="propose_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/propose/propose_{1}.jsp"/>
+	</definition>
+
+	<!-- 수강후기(학습후기) -->
+	<definition name="stoldcomments_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/stoldcomments/stoldcomments_{1}.jsp"/>
+	</definition>
+
+	<!-- 관심과정 -->
+	<definition name="subjconcern_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/subjconcern/subjconcern_{1}.jsp"/>
+	</definition>
+
+	<!-- FAQ -->
+	<definition name="faq_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/faq/faq_{1}.jsp"/>
+	</definition>
+
+	<!-- 고객센터 -->
+	<definition name="customer_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/customer/customer_{1}.jsp"/>
+	</definition>
+
+	<!-- 전화상담신청 -->
+	<definition name="callreserve_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/callreserve/callreserve_{1}.jsp"/>
+	</definition>
+
+	<!-- 열린공부방 -->
+	<definition name="opencontents_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/opencontents/opencontents_{1}.jsp"/>
+	</definition>
+
+	<!-- 기타컨텐츠 팝업 -->
+	<definition name="etc_*_popup" extends="popup_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/etc/etc_{1}_popup.jsp"/>
+	</definition>
+
+	<!-- 기타컨텐츠 -->
+	<definition name="etc_*" extends="sub_layout">
+		<put-attribute name="contents" value="/WEB-INF/views/etc/etc_{1}.jsp"/>
+	</definition>
+
+	<!--############ ERROR Page ##############-->
+	<definition name="errors_*" template="/WEB-INF/views/errors/errors_{1}.jsp"/>
+
+
+</tiles-definitions>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.cylearn.service.BdsService">
+
+
+	<select id="selectOne" parameterType="hashMap" resultType="hashMap">
+		SELECT TABSEQ
+		     , TYPE
+		     , GRCODE
+		     , COMP
+		     , SUBJ
+		     , YEAR
+		     , SUBJSEQ
+		     , SDESC
+		     , LDESC
+		     , STATUS
+		     , LUSERID
+		     , LDATE
+		     , ISUSER_REGIST
+		     , ISREPLY
+		     , ISCOMMENT
+		     , ROWCNT
+		     , ISLOGIN_LIST
+		     , ISLOGIN_DETAIL
+		     , ISBLIND
+		  FROM TZ_BDS
+		 WHERE TABSEQ = #{tabseq}
+	</select>
+
+</mapper>

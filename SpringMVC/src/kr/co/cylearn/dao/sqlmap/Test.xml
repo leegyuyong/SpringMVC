@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.cylearn.dao.TestDao">
+
+	<!--
+	  # DB 결과 데이터 객체에 매핑
+	  # jdbcType="CLOB"
+	-->
+	<resultMap id="boardMap" type="java.util.HashMap">
+		<result property="CONTENT" column="CONTENT" javaType="java.lang.String" jdbcType="CLOB" />
+	</resultMap>
+
+	<!-- 테스트 목록 조회 -->
+	<select id="selectTestList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT SUBJ
+		     , USEBOOK
+		     , BOOKNAME
+		     , BOOKPRICE
+		  FROM TEMPTEMP
+		 WHERE 1 = 1
+	</select>
+
+	<!-- 테스트 상세 조회 -->
+	<select id="selectTestOne" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT SUBJ
+		     , USEBOOK
+		     , BOOKNAME
+		     , BOOKPRICE
+		  FROM TEMPTEMP
+		 WHERE 1 = 1
+		   AND SUBJ = #{subj}
+	</select>
+
+
+	<!-- 게시판 목록 조회 -->
+	<select id="selectBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		  SELECT A.TABSEQ
+		       , A.TYPE
+		       , A.GRCODE
+		       , A.COMP
+		       , A.SUBJ
+		       , A.YEAR
+		       , A.SUBJSEQ
+		       , B.SEQ
+		       , B.USERID
+		       , B.NAME
+		       , B.TITLE
+		       , TO_CHAR(TO_DATE(B.INDATE,'yyyymmddhh24miss'),'YYYY.MM.DD') INDATE
+		       , ROUND(SYSDATE - TO_DATE(B.INDATE,'yyyymmddhh24miss')) DAY_CNT
+		       , B.CNT
+		       , B.REFSEQ
+		       , B.LEVELS
+		       , B.POSITION
+		       , B.ISOPEN
+		       , B.ORIGIN_USERID
+		       , B.ISIMPORT
+		       , B.GADMIN
+		       , DECODE( B.GADMIN,  'P1', '강사',  'A1', '운영자',  B.NAME ) GADMIN_NM
+		       , COUNT( C.REALFILE ) UPFILECNT
+		       , COUNT( D.COMSEQ ) COMCNT
+		    FROM TZ_BDS A
+		       , TZ_BOARD B
+		       , TZ_BOARDFILE C
+		       , TZ_BOARD_COMMENT D
+		   WHERE 1 = 1
+		     AND A.TABSEQ = B.TABSEQ
+		     AND B.TABSEQ = C.TABSEQ(+)
+		     AND B.SEQ = C.SEQ(+)
+		     AND B.TABSEQ = D.TABSEQ(+)
+		     AND B.SEQ = D.SEQ(+)
+		     AND A.TABSEQ = #{tabseq}
+		     <if test="searchtext != null and searchtext != ''">
+		     	<if test="search == 'name'">
+		     AND LOWER(B.NAME) LIKE '%' || LOWER (#{searchtext}) || '%'
+		     	</if>
+		     	<if test="search == 'title'">
+		     AND LOWER(B.TITLE) LIKE '%' || LOWER (#{searchtext}) || '%'
+		     	</if>
+		     	<if test="search == 'content'">
+		     AND LOWER(B.CONTENT) LIKE '%' || LOWER (#{searchtext}) || '%'
+		     	</if>
+		     </if>
+		GROUP BY A.TABSEQ
+		       , A.TYPE
+		       , A.GRCODE
+		       , A.COMP
+		       , A.SUBJ
+		       , A.YEAR
+		       , A.SUBJSEQ
+		       , B.SEQ
+		       , B.USERID
+		       , B.NAME
+		       , B.TITLE
+		       , B.INDATE
+		       , B.CNT
+		       , B.REFSEQ
+		       , B.LEVELS
+		       , B.POSITION
+		       , B.ISOPEN
+		       , B.ORIGIN_USERID
+		       , B.ISIMPORT
+		       , B.GADMIN
+		       , DECODE( B.GADMIN,  'P1', '강사',  'A1', '운영자',  B.NAME )
+		ORDER BY B.ISIMPORT DESC
+		       , B.REFSEQ DESC
+		       , B.POSITION ASC
+		       , B.INDATE DESC
+	</select>
+
+
+	<!-- 게시판 상세 조회 -->
+	<select id="selectBoardOne" parameterType="java.util.HashMap" resultMap="boardMap">
+		SELECT A.SEQ SEQ
+		     , A.USERID USERID
+		     , A.NAME NAME
+		     , A.TITLE TITLE
+		     , A.CONTENT CONTENT
+		     , DECODE( A.GADMIN,  'P1', '강사',  'A1', '운영자',  A.NAME ) GADMIN_NM
+		     , A.GADMIN
+		     , TO_CHAR(TO_DATE(A.INDATE,'yyyymmddhh24miss'),'YYYY.MM.DD') INDATE
+		     , A.CNT CNT
+		     , A.REFSEQ REFSEQ
+		     , A.LEVELS LEVELS
+		     , A.POSITION POSITION
+		     , ( SELECT COUNT( REALFILE )
+		           FROM TZ_BOARDFILE
+		          WHERE TABSEQ = A.TABSEQ
+		            AND SEQ = A.SEQ )
+		          UPFILECNT
+		     , A.ISIMPORT
+		     , ( SELECT DECODE( COUNT( * ), 0, 'Y', 'N' )
+		           FROM TZ_BOARD C, TZ_BOARD D
+		          WHERE C.REFSEQ = D.REFSEQ
+		            AND D.LEVELS = (C.LEVELS + 1)
+		            AND D.POSITION = (C.POSITION + 1)
+		            AND C.TABSEQ = A.TABSEQ
+		            AND C.SEQ = A.SEQ
+		            AND C.TABSEQ = D.TABSEQ )
+		          DELYN
+		     , A.ISOPEN
+		  FROM TZ_BOARD A
+		 WHERE 1 = 1
+		   AND A.TABSEQ = #{tabseq}
+		   AND A.SEQ = #{seq}
+	</select>
+
+	<!-- 게시판 상세 조회 -->
+	<select id="selectBoardOneFileList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT TABSEQ
+		     , SEQ
+		     , FILESEQ
+		     , REALFILE
+		     , SAVEFILE
+		  FROM TZ_BOARDFILE
+		 WHERE 1 = 1
+		   AND TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</select>
+
+	<!-- 게시판 등록 -->
+	<insert id="insertBoard" parameterType="java.util.HashMap">
+		<selectKey resultType="int" keyProperty="seq" order="BEFORE">
+			SELECT NVL( MAX( SEQ ), 0 ) + 1 SEQ
+			  FROM TZ_BOARD
+			 WHERE TABSEQ = #{tabseq}
+		</selectKey>
+		INSERT INTO TZ_BOARD( TABSEQ
+		                    , SEQ
+		                    , USERID
+		                    , NAME
+		                    , INDATE
+		                    , TITLE
+		                    , CONTENT
+		                    , CNT
+		                    , REFSEQ
+		                    , LEVELS
+		                    , POSITION
+		                    , LUSERID
+		                    , LDATE
+		                    , GADMIN
+		                    , SUBJ
+		                    , YEAR
+		                    , SUBJSEQ )
+		     VALUES ( #{tabseq}
+		            , #{seq}
+		            , #{userid}
+		            , #{name}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		            , #{title}
+		            , #{content}
+		            , 0
+		            , #{seq}
+		            , 1
+		            , 1
+		            , #{userid}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		            , #{gadmin}
+		            , #{subj}
+		            , #{year}
+		            , #{subjseq} )
+	</insert>
+
+	<!-- 게시판 파일 등록 -->
+	<insert id="insertBoardFile" parameterType="java.util.HashMap">
+		<selectKey resultType="int" keyProperty="fileseq" order="BEFORE">
+			SELECT NVL( MAX( FILESEQ ), 0 ) + 1 SEQ
+			  FROM TZ_BOARD
+			 WHERE TABSEQ = #{tabseq}
+			   AND SEQ = #{seq}
+		</selectKey>
+		INSERT INTO TZ_BOARDFILE( TABSEQ
+		                        , SEQ
+		                        , FILESEQ
+		                        , REALFILE
+		                        , SAVEFILE
+		                        , LUSERID
+		                        , LDATE )
+		     VALUES ( #{tabseq}
+		            , #{seq}
+		            , #{fileseq}
+		            , #{realfile}
+		            , #{savefile}
+		            , #{userid}
+		            , TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' ) )
+	</insert>
+
+	<!-- 게시판 수정 -->
+	<update id="updateBoard" parameterType="java.util.HashMap">
+		UPDATE TZ_BOARD
+		   SET TITLE      = #{title}
+		     , CONTENT    = #{content}
+		     , USERID     = #{userid}
+		     , NAME       = #{name}
+		     , REFSEQ     = #{refseq}
+		     , LEVELS     = #{levels}
+		     , POSITION   = #{position}
+		     , UPFILE     = #{upfile}
+		     , CNT        = #{cnt}
+		     , LUSERID    = TO_CHAR( SYSDATE, 'YYYYMMDDHH24MISS' )
+		     , LDATE      = #{ldate}
+		     , GADMIN     = #{gadmin}
+		     , SUBJ       = #{subj}
+		     , YEAR       = #{year}
+		     , SUBJSEQ    = #{subjseq}
+		 WHERE TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</update>
+
+		<!-- 게시판 삭제 -->
+	<delete id="deleteBoard" parameterType="java.util.HashMap">
+		DELETE FROM TZ_BOARD
+		 WHERE TABSEQ = #{tabseq}
+		   AND SEQ = #{seq}
+	</delete>
+
+</mapper>

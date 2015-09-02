@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>JEJOUP</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="utf-8">
+<style>
+	@font-face {
+	  font-family: 'nanum';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: url(/templet/T001/css/font/nanumGothic-Regular.eot);
+	  src: url(/templet/T001/css/font/nanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+	       url(/templet/T001/css/font/nanumGothic-Regular.woff2) format('x-woff2'),
+	       url(/templet/T001/css/font/nanumGothic-Regular.woff) format('woff'),
+	       url(/templet/T001/css/font/nanumGothic-Regular.ttf) format('truetype');
+	}
+
+	@font-face {
+	  font-family: 'nanumbold';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: url(/templet/T001/css/font/nanumGothic-Bold.eot);
+	  src: url(/templet/T001/css/font/nanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+	       url(/templet/T001/css/font/nanumGothic-Bold.woff2) format('x-woff2'),
+	       url(/templet/T001/css/font/nanumGothic-Bold.woff) format('woff'),
+	       url(/templet/T001/css/font/nanumGothic-Bold.ttf) format('truetype');
+	}
+
+	html, body {
+		width:100%; height:100%;
+		padding:0; margin:0; font-family:"nanum";
+	}
+	p { padding:0; margin:0; }
+	div.window {
+		display:table;
+		width:100%; height:100%;
+	}
+	div.box {
+		display:table-cell;
+		width:100%; height:100%;
+		vertical-align:middle;
+	}
+	div.error {
+	display:table;
+	width:980px; margin:0 auto;
+	background:url(/templet/T001/images/section/bg_eff.png) no-repeat;
+	border:3px solid #e4e4e4;
+	}
+	div.error div.in-msg {
+		display:table-cell;
+		height:400px;
+		text-align:center; vertical-align:middle;
+	}
+	div.error div.in-msg div.msg-box {
+		display:table;
+		margin:0 auto;
+	}
+	div.error div.in-msg div.msg-box div.error-icon {
+		display:table-cell;
+		width:150px;
+		text-align:left; vertical-align:top;
+	}
+	div.error div.in-msg div.msg-box div.error-msg {
+		display:table-cell;
+		text-align:left; vertical-align:top;
+	}
+	div.error div.in-msg div.msg-box div.error-msg p.title {
+		font-family:"nanumbold"; font-size:30px; color:#bf4062;
+	}
+	div.error div.in-msg div.msg-box div.error-msg p.sub-title {
+		margin-top:5px;
+		font-family:"nanumbold"; font-size:15px; color:#333333;
+	}
+	div.error div.in-msg div.msg-box div.error-msg p.sub-msg {
+		margin-top:15px;
+		font-size:12px; color:#555555; line-height:18px;
+	}
+	div.error div.in-msg div.msg-box div.error-msg button {
+		height:40px; padding:0 25px 0 40px; margin-top:20px;
+		font-family:"nanum"; font-size:15px; color:#333333; border:1px solid #d2d2d2;
+		background:url(/templet/T001/images/section/bg_prev.png) no-repeat 25px 50% white;
+	}
+	div.error div.in-msg div.msg-box div.error-msg p.contact {
+		margin-top:10px;
+		font-size:12px;
+	}
+	div.error div.in-msg div.msg-box div.error-msg p.contact img {
+		vertical-align:middle;
+	}
+	u.error {
+		display:inline-block;
+		width:120px; height:120px;
+		font-style:normal;
+		background:url(/templet/T001/images/section/page_error.png) no-repeat;
+		vertical-align:middle;
+	}
+</style>
+</head>
+<body>
+
+<!-- section -->
+<div class="window">
+	<div class="box">
+		<div class="error">
+			<div class="in-msg">
+				<div class="msg-box">
+					<div class="error-icon"><u class="error"></u></div>
+					<div class="error-msg">
+						<p class="title">페이지 오류</p>
+						<p class="sub-title">이용에 불편을 드려 죄송합니다.</p>
+
+						<p class="sub-msg">
+							요청하신 페이지를 찾을 수 없습니다.<br>
+							문제가 지속될 경우, 운영자에게 문의하시기 바랍니다.
+						</p>
+
+						<p class="contact">
+							운영문의 :
+							<span><img src="/templet/T001/images/section/icon_call.png"> 031-288-7055</span>
+							<span style="margin-left:10px;"><img src="/templet/T001/images/section/icon_mail.png">  cylearn@hri.co.kr</span>
+						</p>
+
+						<button type="button" onclick="window.history.back('-1');">이전 페이지</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

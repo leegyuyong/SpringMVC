@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="euc-kr" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>Hyundai Learning Center</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/css/sub.css" />
+	<link rel="stylesheet" type="text/css" href="/css/sub_typeB.css" />
+	<script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="/js/common.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#btn_home').click(function() {
+				location.href = 'main.html';
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<!-- wrapper -->
+	<div id="wrapper">
+
+		<!-- header -->
+		<header>
+			<div class="title_gr">
+				<div class="btn_back">
+					<button id="btn_back"><img src="/images/sub/icon_arrow_left.png" /><span>Back</span></button>
+				</div>
+			</div>
+		</header>
+		<!-- //header -->
+
+		<!-- container -->
+		<div id="container">
+			<div id="sub_common_content">
+				<!-- 오프라인 -->
+				<div class="error_offline">
+					<ul>
+						<li class="icon">
+							<p><img src="/images/sub/icon_antenna.png" /></p>
+						</li>
+						<li class="txt">
+							<span class="pb15">현재 오프라인 상태입니다.</span>
+							<p class="pb20">오프라인 상태이므로 모바일연수원을 이용할 수 없습니다.<br>네트워크 연결을 확인하신 후, 재시도 해주시기 바랍니다.</p>
+						</li>
+					</ul>
+
+					<div class="btn_area"><button class="btn_style1" id="btn_home">홈으로 이동</button></div>
+				</div>
+				<!-- //오프라인 -->
+			</div>
+		</div>
+		<!-- //container -->
+
+		<!-- footer -->
+		<footer>&nbsp;</footer>
+		<!-- //footer -->
+
+	</div>
+	<!-- //wrapper -->
+
+</body>
+</html>

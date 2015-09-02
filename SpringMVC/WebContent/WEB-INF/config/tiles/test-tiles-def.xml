@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<!-- ############ Defined Layout ##############-->
+
+	<!-- layout -->
+	<definition name="test_layout" template="/WEB-INF/views/test/test_layout.jsp">
+		<put-attribute name="top" value="/test/top" />
+		<put-attribute name="sub_gnb" value="/test/gnb" />
+		<put-attribute name="footer" value="/test/footer" />
+	</definition>
+
+	<!-- ############ Defined Layout End ##############-->
+
+	<!--
+		############ 테스트 시작 ##############
+	-->
+	<!-- 테스트 -->
+	<definition name="test_*" extends="test_layout">
+		<put-attribute name="body" value="/WEB-INF/views/test/test_{1}.jsp"/>
+	</definition>
+
+
+	<definition name="sample_*" extends="test_layout">
+		<put-attribute name="body" value="/WEB-INF/views/sample/sample_{1}.jsp"/>
+	</definition>
+
+
+	<!-- include  -->
+	<definition name="test_top" template="/WEB-INF/views/test/test_top.jsp"/>
+	<definition name="test_gnb" template="/WEB-INF/views/test/test_gnb.jsp"/>
+	<definition name="test_footer" template="/WEB-INF/views/test/test_footer.jsp"/>
+
+
+
+</tiles-definitions>

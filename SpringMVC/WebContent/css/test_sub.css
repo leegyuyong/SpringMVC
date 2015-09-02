@@ -1,0 +1,790 @@
+@charset "euc-kr";
+
+/* wrapper */
+#wrapper { position:relative; min-height:100%; overflow:hidden;}
+
+
+/* header */
+header, #container, #zipContainer { margin:0; }
+/*header { position:relative; padding:0; }*/
+header { position:fixed; left:0; top:0; width:100%; padding:0; z-index:1000; }
+header div.title { height:36px; }
+header div.title div.btn_back { position:absolute; left:5px; top:0; line-height:36px; }
+header div.title div.btn_back button { border:transparent; background:transparent; cursor:pointer; }
+header div.title div.btn_back button span { font-size:11px; padding-left:5px; }
+header div.title div.title_name { text-align:center; line-height:36px; }
+header div.title div.title_name span { color:white; font-size:16px; font-weight:bold; }
+header div.lnb { position:relative; background:#ebebeb; height:30px; border-bottom:1px solid #00a651; }
+header div.lnb ul { position:relative; width:100%; padding:0 20px; box-sizing:border-box; }
+header div.lnb ul li { float:left; width:25%; font-size:13px; color:#444444; text-align:center; line-height:26px; cursor:pointer; padding-top:2px; }
+header div.lnb ul li.on { color:#009a4b; border-bottom:2px solid #00a651; }
+header div.lnb button { border:transparent; background:transparent; }
+header div.btn_left { position:absolute; left:0; top:0; line-height:30px; border-right:1px solid #00a651; padding:0 4px; background:#ebebeb; display:none; z-index:100; cursor:pointer; }
+header div.btn_right { position:absolute; right:0; top:0; line-height:30px; border-left:1px solid #00a651; padding:0 4px; background:#ebebeb; display:none; z-index:100; cursor:pointer; }
+header div.footer_menu_slider { position:relative; overflow:hidden; width:100%; }
+header div.footer_menu_slider ul.main_menu { position:relative; }
+header div.s03_02_lnb { position:relative; height:30px; }
+header div.s03_02_lnb ul li { float:left; width:50%; font-size:13px; text-align:center; line-height:30px; cursor:pointer; }
+header div.s03_04_lnb { position:relative; height:30px; }
+header div.s03_04_lnb ul li { float:left; width:33.33%; font-size:13px; text-align:center; line-height:30px; cursor:pointer; }
+
+header div.title_gr { height:36px;background:#464646; }
+header div.title_gr div.btn_back { position:absolute; left:5px; top:0; line-height:36px; }
+header div.title_gr div.btn_back button { border:transparent; background:transparent; cursor:pointer; }
+header div.title_gr div.btn_back button span { font-size:11px; color:#fff; padding-left:5px; }
+
+/* container */
+#container, #zipContainer { margin-bottom:51px; margin-top:37px; }
+
+button.btn_style1 { width:40%; height:30px; background:#08c162; border:transparent; border-radius:3px; font-size:13px; font-weight:bold; color:white; box-shadow:0px 2px 0px #13A45A; cursor:pointer; }
+button.btn_style2 { width:40%; height:30px; background:#3081d1; border:transparent; border-radius:3px; font-size:13px; font-weight:bold; color:white; box-shadow:0px 2px 0px #236bb2; cursor:pointer; }
+button.btn_style3 { width:50px; background:#3cb878; border:transparent; border-radius:3px; font-size:10px; font-weight:normal; color:white; cursor:pointer; padding:3px 4px; }
+button.btn_style4 { width:100px; height:22px; background:white; border:1px solid #3cb878; border-radius:3px; font-size:10px; font-weight:normal; color:#3cb878; cursor:pointer; }
+
+
+
+article div.icon span.purple { background:#96a3dc; border:transparent; border-radius:3px; color:white; font-size:10px; padding:2px 4px; }
+article div.icon span.blue { background:#7fb5dd; border:transparent; border-radius:3px; color:white; font-size:10px; padding:2px 4px; }
+article div.icon span.green { background:#7ac2cf; border:transparent; border-radius:3px; color:white; font-size:10px; padding:2px 4px; }
+div.util { background:#f2f2f2; border-bottom:1px solid #aaaaaa; padding:0 10px; }
+div.util p { display:inline-block; width:12px; }
+div.util p img { width:100%; }
+div.util .more { float:left; line-height:40px; width:70%; text-align:center; cursor:pointer; }
+div.util .top { float:right; line-height:40px; padding-left:10px; cursor:pointer; }
+div.util .line { float:right; line-height:40px; }
+div.util .line p { display:block; width:1px; }
+div.util .line p img { width:100%; }
+div.util p.loading { display:inline-block; width:24px; }
+div.util p.loading img { width:100%; }
+
+#sub01_content div.notice_wrap { position:relative; padding:10px 10px; border-top:1px solid #1ab766; border-bottom:1px solid #1ab766; }
+#sub01_content div.notice_wrap p { width:57px; height:14px; padding-bottom:10px; }
+#sub01_content div.notice_wrap p img { width:100%; height:auto; }
+#sub01_content div.notice_wrap ul.notice { color:#555555; }
+#sub01_content div.notice_wrap ul.notice li { line-height:17px; }
+#sub01_content div.notice_wrap ul.notice li:before { content:"\2022"; color:#547fbb; }
+
+
+#sub01_content div.course_count { height:30px; line-height:30px; border-bottom:1px solid #aaaaaa; padding:0 10px; }
+#sub01_content div.course_count p { color:#555555; }
+#sub01_content div.course_count span { color:#2a6ec3; }
+
+#sub01_content article { position:relative; padding:10px 10px; color:#555555; }
+#sub01_content article.list { border-bottom:1px solid #aaaaaa; cursor:pointer; }
+#sub01_content article h2 { font-size:13px; color:#1451a4; }
+#sub01_content article h2.normal { font-weight:normal; }
+#sub01_content article h2.wait_course_title { width:80%; }
+#sub01_content article div.icon { padding:5px 0 10px 0; }
+#sub01_content article ul li:before { content:"\2022"; color:#547fbb; }
+#sub01_content article ul li { line-height:17px; }
+#sub01_content article ul li span { color:red; }
+
+#sub01_content div.detail div.btn_study { padding:10px 0 17px 0; text-align:center; }
+#sub01_content div.detail table.course_list { width:100%; height:100%; border-bottom:1px solid #898989; margin-bottom:20px; table-layout:fixed; }
+#sub01_content div.detail table.course_list th { height:30px; text-align:center; background:#f1f1f1; border-top:1px solid #737373; border-bottom:1px solid #898989; }
+#sub01_content div.detail table.course_list td { height:25px; text-align:center; border-bottom:1px dotted #cccccc; }
+#sub01_content div.detail table.course_list tr:nth-last-child(1) td { border-bottom:0px; }
+#sub01_content div.detail table.course_list th.subject { border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list th.completed { border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list td.subject { padding-left:10px; text-align:left; border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list td.subject p { width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+#sub01_content div.detail table.course_list td.completed { font-family:"Arial"; font-weight:bold; font-size:13px; border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list td.completed span.yes { color:#4bb3e3; }
+#sub01_content div.detail table.course_list td.completed span.no { color:#ff5e5e; }
+#sub01_content div.detail table.course_list button { border-radius:3px; border:transparent; background:#acacac; cursor:auto; color:white; padding:3px 4px; font-size:10px; }
+#sub01_content div.detail table.course_list button.on { background:#3081d1; cursor:pointer; }
+#sub01_content div.detail table.course_list th.type { border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list th.result { border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list td.type { padding-left:10px; text-align:left; border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.course_list td.result { border-right:1px solid #c9c9c9; }
+#sub01_content div.detail table.type_list { width:100%; height:100%; border-bottom:1px solid #898989; margin-bottom:20px; table-layout:fixed; }
+
+/* 최종평가 */
+#sub01_content div.exam_title { padding:10px; }
+#sub01_content div.exam_title dl dt { position:absolute; }
+#sub01_content div.exam_title dl dd { padding:0 0 10px 55px; }
+#sub01_content div.exam_title dl dd:nth-last-child(1) { padding-bottom:0; }
+#sub01_content div.exam_title dl dd.course_title { padding-left:45px; font-weight:bold; color:#1451a4; }
+
+#sub01_content div.timer_wrap { position:relative; }
+#sub01_content div.timer_wrap div.exam_timer { position:absolute; right:10px; top:10px; width:110px; padding:10px 5px; background:#f2f2f2; border:1px solid #e9e9e9; border-radius:3px; opacity:0.55; filter:alpha(opacity=55); filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=55); z-index:10; transition-duration:0.5s; }
+#sub01_content div.timer_wrap div.exam_timer div.txt { font-size:9px; text-align:center; color:#000; padding-bottom:5px; }
+#sub01_content div.timer_wrap div.exam_timer div.txt span { color:#ff6161; }
+#sub01_content div.timer_wrap div.exam_timer div.time { font-size:14px; text-align:center; color:#000; }
+#sub01_content div.timer_wrap div.exam_timer div.time span { font-size:18px; color:#0042bc; }
+
+
+#sub01_content div.question { padding:10px; }
+#sub01_content div.question dl dt { position:absolute; font-weight:bold; color:#1451a4; }
+#sub01_content div.question dl dd { padding:0 0 8px 23px; color:#1451a4; }
+#sub01_content div.question ul li { line-height:18px; }
+#sub01_content div.question ul li label { padding-left:10px; }
+#sub01_content div.question ul li input[type="radio"] { display:none; }
+#sub01_content div.question ul li input[type="radio"] + label span.trick {
+    display:inline-block;
+    width:7px;
+    height:7px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/myclass/radio_sheet.png) left top no-repeat;
+}
+#sub01_content div.question ul li input[type="radio"]:checked + label span.trick {
+    background:url(../images/myclass/radio_sheet.png) -7px top no-repeat;
+}
+#sub01_content div.question ul li input[type="radio"] + label span.top {
+    margin:5px 4px 0 0 !important;
+    vertical-align:top !important;
+}
+#sub01_content div.question textarea.style1 { width:100%; height:50px; border:1px solid #e7e7e7; padding:5px; box-sizing:border-box; }
+#sub01_content div.question input.style1 { width:60%; height:25px; border:1px solid #e7e7e7; box-sizing:border-box; }
+#sub01_content div.question font.o { font-family:"Tahoma", "Sans-serif"; font-size:16px; font-weight:bold; color:#0072bc; }
+#sub01_content div.question font.x { font-family:"Tahoma", "Sans-serif"; font-size:16px; font-weight:bold; color:#ff6161; }
+#sub01_content div.question p.answer_img { display:inline-block; }
+#sub01_content div.question p.answer_img img { display:inline-block; width:100%; height:auto; }
+#sub01_content div.question p.answer_img_bl { display:block;padding:2px 0 10px 22px }
+#sub01_content div.question p.answer_img_bl img { display:block; width:100%; height:auto; }
+#sub01_content div.question p.answer_img_q { display:block;padding-bottom:5px }
+#sub01_content div.question p.answer_img_q img { display:block; width:100%; height:auto; }
+#sub01_content div.question p.img_type1 { width:186px; }
+#sub01_content div.question p.img_type2 { width:233px; }
+#sub01_content div.question p.img_type3 { width:161px; height:84px; }
+#sub01_content div.question span.answer_text { display:block; padding:5px 0 15px 40px;}
+#sub01_content div.question span.answer_text2 { display:inline-block; padding-left:13px; width:90%; box-sizing:border-box; }
+#sub01_content div.question span.number { position:absolute; display:inline-block; }
+
+#sub01_content div.question dl dd.no_number { padding:0 0 8px 10px; color:#1451a4; }
+#sub01_content div.question textarea.style2 { width:93%; height:50px; border:1px solid #e7e7e7; padding:5px; box-sizing:border-box; }
+
+/* 최종평가 결과 */
+#sub01_content div.exam_result { padding:10px; text-align:center; }
+#sub01_content div.exam_result ul { padding-bottom:30px; }
+#sub01_content div.exam_result ul li.result { padding:30px 0 20px 0; font-size:16px; font-weight:bold; letter-spacing:0.1px; color:#1451a4; }
+#sub01_content div.exam_result ul li.txt { line-height:17px; letter-spacing:0.1px; }
+
+/* 설문 */
+#sub01_content div.survey_title { padding:10px; border-bottom:1px solid #d7d7d7; }
+#sub01_content div.survey_title dl dt { position:absolute; }
+#sub01_content div.survey_title dl dd { padding-left:45px; font-weight:bold; color:#1451a4; }
+#sub01_content div.question dl dd textarea { width:100%; height:50px; padding:5px; box-sizing:border-box; border:1px solid #ebebeb; }
+#sub01_content div.btn_area { padding:10px 0 17px 0; text-align:center; }
+
+/* 대기중 */
+#sub01_content div.wait_status { position:absolute; right:10px; top:0px; height:100%; z-index:0; }
+#sub01_content div.wait_status div.status_wrap { display:table; height:100%; }
+#sub01_content div.wait_status div.status_wrap p { display:table-cell; vertical-align:middle; text-align:center; }
+#sub01_content div.wait_status div.status_wrap p span.gray { display:block; width:56px; height:56px; background:url(../images/myclass/course_wait_status1.png) no-repeat; background-size:contain; box-sizing:border-box; letter-spacing:0.25px; color:white; }
+#sub01_content div.wait_status div.status_wrap p span.green { display:block; width:56px; height:56px; background:url(../images/myclass/course_wait_status2.png) no-repeat; background-size:contain; box-sizing:border-box; letter-spacing:0.25px; color:white; }
+#sub01_content div.wait_status div.status_wrap p span.multi_line { padding-top:14px; letter-spacing:-0.25px; }
+#sub01_content div.wait_status div.status_wrap p span.single_line { padding-top:22px; letter-spacing:-0.25px; }
+
+#sub01_content div.detail div.info_title { position:relative; font-weight:bold; color:white; height:30px; background:#7da7d9; padding:0 10px; }
+#sub01_content div.detail div.info_title p { display:inline-block; width:10px; padding-right:3px; line-height:30px; }
+#sub01_content div.detail div.info_title p img { width:100%; height:auto; }
+#sub01_content div.detail div.info_title div.btn_arrow { position:absolute; right:0; top:0; height:100%; padding:0 10px; border-left:1px solid white; cursor:pointer; }
+#sub01_content div.detail div.info_title div.btn_arrow p img { width:11px; height:7px; }
+#sub01_content div.detail div.info_wrap { border-bottom:4px solid #e0e0e0; }
+#sub01_content div.detail div.info_wrap dl.default { padding:10px; }
+#sub01_content div.detail div.info_wrap dl.bottom_border { border-bottom:1px solid #cccccc; }
+#sub01_content div.detail div.info_wrap dl.default dt { position:absolute; color:#444444; font-weight:bold; }
+#sub01_content div.detail div.info_wrap dl.default dd { padding-left:60px; color:#666666; line-height:17px; }
+#sub01_content div.detail div.info_wrap dl.default dd span { display:block; }
+#sub01_content div.detail div.info_wrap dl.default dd table.criterion { width:100%; height:100%; border-bottom:1px solid #898989; margin-bottom:5px; table-layout:fixed; border-right:1px solid #aaaaaa; }
+#sub01_content div.detail div.info_wrap dl.default dd table.criterion th { height:30px; font-weight:normal; color:#1451a4; text-align:center; background:#f1f1f1; border-top:1px solid #0072bc; border-bottom:1px solid #aaaaaa;border-left:1px solid #aaaaaa; }
+#sub01_content div.detail div.info_wrap dl.default dd table.criterion td { height:25px; color:#666666; text-align:center; border-bottom:1px dotted #aaaaaa; border-left:1px solid #aaaaaa; }
+#sub01_content div.detail div.info_wrap dl.default dd table.criterion tr:nth-last-child(1) td { border-bottom:0px; }
+#sub01_content div.detail div.info_wrap ul.course_content { padding:10px; }
+#sub01_content div.detail div.info_wrap ul.course_content li { font-size:11px; color:#666666; line-height:17px; }
+#sub01_content div.detail div.info_wrap ul.tab_menu { position:relative; padding:10px; }
+#sub01_content div.detail div.info_wrap ul.tab_menu li { float:left; width:50%; border:1px solid #ccc; box-sizing:border-box; text-align:center; line-height:22px; background:white; cursor:pointer; }
+#sub01_content div.detail div.info_wrap ul.tab_menu li:nth-child(1) { background:#f1f1f1; }
+#sub01_content div.detail div.info_wrap ul.tab_menu li:nth-last-child(1) { border-left:0; }
+#sub01_content div.detail div.info_wrap ul.tab_menu div.triangle { position:absolute; z-index:10; width:11px; margin-top:-8px; }
+#sub01_content div.detail div.info_wrap ul.tab_menu div.triangle:nth-child(1) { padding-left:25%; margin-left:-10px; }
+#sub01_content div.detail div.info_wrap ul.tab_menu div.triangle:nth-child(2) { padding-left:75%; }
+#sub01_content div.detail div.info_wrap ul.tab_menu div.triangle img { width:100%; }
+#sub01_content div.detail div.info_wrap table.book_info { padding:10px; width:100%; height:100%; }
+#sub01_content div.detail div.info_wrap table.book_info td { vertical-align:top; }
+#sub01_content div.detail div.info_wrap table.book_info td.book_img img { width:100%; height:auto; border:1px solid #220406; box-sizing:border-box; }
+#sub01_content div.detail div.info_wrap table.book_info_detail { margin-left:5px; width:100%; height:100%; box-sizing:border-box; border-top:2px solid #aaaaaa; border-bottom:1px solid #aaaaaa; }
+#sub01_content div.detail div.info_wrap table.book_info_detail th { font-size:11px; text-align:center; font-weight:normal; vertical-align:middle; border-left:1px solid #aaaaaa; border-right:1px solid #aaaaaa; border-bottom:1px solid #aaaaaa; }
+#sub01_content div.detail div.info_wrap table.book_info_detail td { font-size:11px; padding-left:5px; vertical-align:middle; border-right:1px solid #aaaaaa; border-bottom:1px solid #aaaaaa; }
+
+
+/* s02 과정안내 */
+#sub02_content div.course_search { padding:10px; border-bottom:1px solid #2c7ece; }
+#sub02_content div.course_search table { width:100%; height:100%; }
+#sub02_content div.course_search table tr td.category_select { padding-bottom:6px; }
+#sub02_content div.course_search table tr td.category_select select { width:98%; height:23px; }
+#sub02_content div.course_search table tr td.search_keyword input { width:100%; height:23px; border-radius:3px; border:1px solid #3cb878; background:white; color:#555555; box-sizing:border-box; padding:0 5px; font-size:10px; }
+#sub02_content div.course_search table tr td.btn_area button { width:52px; height:52px; border-radius:3px; border:transparent; background:#3cb878; cursor:pointer; color:white; margin-left:5px; }
+#sub02_content div.course_search table tr td.btn_area button span { display:block; padding-top:5px; font-size:10px; }
+#sub02_content div.course_search table tr td.option { padding-top:5px; }
+#sub02_content div.course_search table tr td.option label { font-size:10px; }
+#sub02_content div.course_search table tr td.option input[type="checkbox"] { display:none; }
+#sub02_content div.course_search table tr td.option input[type="checkbox"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) left top no-repeat;
+}
+#sub02_content div.course_search table tr td.option input[type="checkbox"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -11px top no-repeat;
+}
+
+#sub02_content div.course_search_count { padding:0 10px; border-bottom:4px solid #e0e0e0; line-height:28px; }
+#sub02_content div.course_search_count span { color:#2a6ec3; }
+#sub02_content article.list { cursor:pointer; border-bottom:1px solid #aaaaaa; padding:0; }
+#sub02_content article.list table.course_info { width:100%; height:100%; }
+#sub02_content article.list table.course_info tr td.course_img { width:90px; vertical-align:top; }
+#sub02_content article.list table.course_info tr td.course_img img { width:100%; height:auto; }
+#sub02_content article.list table.course_info tr td.course_desc { padding:7px 10px 0; vertical-align:top; }
+#sub02_content article.list table.course_info tr td.course_desc h2 { color:#1451a4; font-weight:bold; }
+#sub02_content article.list table.course_info tr td.course_desc div.icon { padding-top:5px; display:inline-block; }
+#sub02_content article.list table.course_info tr td.course_desc div.period { display:inline-block; color:#777777; }
+#sub02_content article.list table.course_info tr td.course_desc div.period p { width:14px; height:14px; display:inline-block; }
+#sub02_content article.list table.course_info tr td.course_desc div.period p img { width:100%; height:auto; }
+#sub02_content article.list table.course_info tr td.cate_title { background:#f1f1f1; text-align:right; color:#014ebd; font-size:9px; height:25px; }
+#sub02_content article.list table.course_info tr td.cate_title p { display:inline-block; padding-left:3px; width:4px; }
+#sub02_content article.list table.course_info tr td.cate_title p img { width:100%; height:auto; }
+#sub02_content article.list table.course_info tr td.category { background:#f1f1f1; padding-left:8px; }
+/*
+#sub02_content div.util { background:#f2f2f2; border-bottom:1px solid #aaaaaa; padding:0 10px; }
+#sub02_content div.util p { display:inline-block; width:12px; }
+#sub02_content div.util p img { width:100%; }
+#sub02_content div.util .more { float:left; line-height:40px; width:70%; text-align:center; cursor:pointer; }
+#sub02_content div.util .top { float:right; line-height:40px; padding-left:10px; cursor:pointer; }
+#sub02_content div.util .line { float:right; line-height:40px; }
+#sub02_content div.util .line p { display:block; width:1px; }
+#sub02_content div.util .line p img { width:100%; }
+*/
+
+/* 과정안내 상세보기 */
+#sub02_content div.notice_wrap { position:relative; padding:10px 10px; border-top:1px solid #1ab766; border-bottom:1px solid #1ab766; }
+#sub02_content div.notice_wrap p { width:57px; height:14px; padding-bottom:10px; }
+#sub02_content div.notice_wrap p img { width:100%; height:auto; }
+#sub02_content div.notice_wrap ul.notice { color:#555555; }
+#sub02_content div.notice_wrap ul.notice li { line-height:17px; }
+#sub02_content div.notice_wrap ul.notice li:before { content:"\2022"; color:#547fbb; }
+
+#sub02_content article { position:relative; padding:10px 10px; color:#555555; }
+#sub02_content article.list { border-bottom:1px solid #aaaaaa; cursor:pointer; }
+#sub02_content article h2 { font-weight:normal; font-size:13px; color:#1451a4; }
+#sub02_content article h2.wait_course_title { width:80%; }
+#sub02_content article div.icon { padding:5px 0 10px 0; }
+#sub02_content article ul li:before { content:"\2022"; color:#547fbb; }
+#sub02_content article ul li { line-height:17px; }
+#sub02_content article ul li span { color:red; }
+#sub02_content div.btn_area { padding:10px 0 17px 0; text-align:center; }
+
+#sub02_content div.detail div.info_title { position:relative; font-weight:bold; color:white; height:30px; background:#7da7d9; padding:0 10px; }
+#sub02_content div.detail div.info_title p { display:inline-block; width:10px; padding-right:3px; line-height:30px; }
+#sub02_content div.detail div.info_title p img { width:100%; height:auto; }
+#sub02_content div.detail div.info_title div.btn_arrow { position:absolute; right:0; top:0; height:100%; padding:0 10px; border-left:1px solid white; cursor:pointer; }
+#sub02_content div.detail div.info_title div.btn_arrow p img { width:11px; height:7px; }
+#sub02_content div.detail div.info_wrap { border-bottom:4px solid #e0e0e0; }
+#sub02_content div.detail div.info_wrap h2 { font-size:11px font-weight:bold; color:#444444; letter-spacing:0.1px; padding:10px 0 5px; }
+#sub02_content div.detail div.info_wrap ul.course_content { padding:10px; }
+#sub02_content div.detail div.info_wrap ul.course_content li { font-size:11px; color:#666666; line-height:17px; }
+#sub02_content div.detail div.info_wrap ul.tab_menu { position:relative; padding:10px; }
+#sub02_content div.detail div.info_wrap ul.tab_menu li { float:left; width:50%; border:1px solid #ccc; box-sizing:border-box; text-align:center; line-height:22px; background:white; cursor:pointer; }
+#sub02_content div.detail div.info_wrap ul.tab_menu li:nth-child(1) { background:#f1f1f1; }
+#sub02_content div.detail div.info_wrap ul.tab_menu li:nth-last-child(1) { border-left:0; }
+#sub02_content div.detail div.info_wrap ul.tab_menu div.triangle { position:absolute; z-index:10; width:11px; margin-top:-8px; }
+#sub02_content div.detail div.info_wrap ul.tab_menu div.triangle:nth-child(1) { padding-left:25%; margin-left:-10px; }
+#sub02_content div.detail div.info_wrap ul.tab_menu div.triangle:nth-child(2) { padding-left:75%; }
+#sub02_content div.detail div.info_wrap ul.tab_menu div.triangle img { width:100%; }
+#sub02_content div.detail div.info_wrap table.book_info { padding:10px; width:100%; height:100%; }
+#sub02_content div.detail div.info_wrap table.book_info td { vertical-align:top; }
+#sub02_content div.detail div.info_wrap table.book_info td.book_img img { width:100%; height:auto; border:1px solid #220406; box-sizing:border-box; }
+#sub02_content div.detail div.info_wrap table.book_info_detail { margin-left:5px; width:100%; height:100%; box-sizing:border-box; border-top:2px solid #aaaaaa; border-bottom:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap table.book_info_detail th { font-size:11px; text-align:center; font-weight:normal; vertical-align:middle; border-left:1px solid #aaaaaa; border-right:1px solid #aaaaaa; border-bottom:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap table.book_info_detail td { font-size:11px; padding-left:5px; vertical-align:middle; border-right:1px solid #aaaaaa; border-bottom:1px solid #aaaaaa; }
+
+#sub02_content div.detail div.info_wrap table.book_choose { width:100%; height:100%; border-bottom:1px solid #898989; margin-bottom:5px; table-layout:fixed; border-right:1px solid #aaaaaa; box-sizing:border-box; }
+#sub02_content div.detail div.info_wrap table.book_choose th { height:30px; font-weight:normal; color:#1451a4; text-align:center; background:#f1f1f1; border-top:1px solid #0072bc; border-bottom:1px solid #aaaaaa;border-left:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap table.book_choose td { height:25px; color:#666666; text-align:center; border-left:1px solid #aaaaaa; padding:0 10px; }
+#sub02_content div.detail div.info_wrap table.book_choose td p.ellipsis { width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+#sub02_content div.detail div.info_wrap table.book_choose tr:nth-last-child(1) td { border-bottom:0px; }
+#sub02_content div.detail div.info_wrap table.book_choose td input[type="radio"] { display:none; }
+#sub02_content div.detail div.info_wrap table.book_choose td input[type="radio"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 0 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) -22px top no-repeat;
+}
+#sub02_content div.detail div.info_wrap table.book_choose td input[type="radio"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -33px top no-repeat;
+}
+#sub02_content div.detail div.info_wrap table.address { width:100%; height:100%; border-bottom:1px solid #898989; margin-bottom:20px; border:1px solid #0072bc; box-sizing:border-box; padding:5px; }
+#sub02_content div.detail div.info_wrap table.address th { height:30px; font-weight:normal; color:#666666; text-align:left; }
+#sub02_content div.detail div.info_wrap table.address td { height:30px; color:#666666; }
+#sub02_content div.detail div.info_wrap table.address td input { width:60%; height:17px; border:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap table.address td p.hp input { width:40px; }
+#sub02_content div.detail div.info_wrap table.address td p.zip { margin-bottom:5px; }
+#sub02_content div.detail div.info_wrap table.address td p.zip input { width:40px; }
+#sub02_content div.detail div.info_wrap table.address td p.zip span.btn_area { padding-left:5px; }
+#sub02_content div.detail div.info_wrap table.address td p.addr input { width:90%; margin-bottom:5px; }
+
+#sub02_content div.detail div.info_wrap dl.default { padding:10px 10px 6px 10px; border-bottom:1px solid #e0e0e0; }
+#sub02_content div.detail div.info_wrap dl.default dt { position:absolute; color:#444444; font-weight:bold; }
+#sub02_content div.detail div.info_wrap dl.default dd { padding-left:60px; color:#666666; line-height:17px; display:inline-block;width:100%; box-sizing:border-box;}
+#sub02_content div.detail div.info_wrap dl.default dd ul.pay_type li { float:left; width:100px; }
+#sub02_content div.detail div.info_wrap dl.default dd table.criterion { width:100%; height:100%; border-bottom:1px solid #898989; margin-bottom:5px; table-layout:fixed; border-right:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap dl.default dd table.criterion th { height:30px; font-weight:normal; color:#1451a4; text-align:center; background:#f1f1f1; border-top:1px solid #0072bc; border-bottom:1px solid #aaaaaa;border-left:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap dl.default dd table.criterion td { height:25px; color:#666666; text-align:center; border-bottom:1px dotted #aaaaaa; border-left:1px solid #aaaaaa; }
+#sub02_content div.detail div.info_wrap dl.default dd table.criterion tr:nth-last-child(1) td { border-bottom:0px; }
+#sub02_content div.detail div.info_wrap dl.default dd input[type="radio"] { display:none; }
+#sub02_content div.detail div.info_wrap dl.default dd input[type="radio"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 0 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) -22px top no-repeat;
+}
+#sub02_content div.detail div.info_wrap dl.default dd input[type="radio"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -33px top no-repeat;
+}
+
+/*
+#sub02_content div.detail div.info_wrap div.privacy { position:relative; width:100%; padding:10px; box-sizing:border-box; }
+#sub02_content div.detail div.info_wrap div.privacy div.btn_area { position:absolute; right:10px; top:0; }
+#sub02_content div.detail div.info_wrap div.privacy input[type="checkbox"] { display:none; }
+#sub02_content div.detail div.info_wrap div.privacy input[type="checkbox"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 0 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) left top no-repeat;
+}
+#sub02_content div.detail div.info_wrap div.privacy input[type="checkbox"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -11px top no-repeat;
+}
+*/
+
+#sub02_content div.detail div.info_title div.btn_area_privacy { position:absolute; right:10px; top:5px }
+#sub02_content div.detail div.info_title p.privacy{width:100%;color:#fff;}
+#sub02_content div.detail div.info_title p.privacy input[type="checkbox"] { display:none; }
+#sub02_content div.detail div.info_title p.privacy input[type="checkbox"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 0 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) left top no-repeat;
+}
+#sub02_content div.detail div.info_title p.privacy input[type="checkbox"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -11px top no-repeat;
+}
+
+button.btn_style5 { width:50px; background:#0054a6; border:transparent; border-radius:3px; font-size:10px; font-weight:normal; color:white; cursor:pointer; padding:3px 4px; }
+
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr td.aleft{text-align:left}
+
+/* 우편번호 찾기*/
+#sub02_content div.detail div.zipcode_wrap {  }
+#sub02_content div.detail div.zipcode_wrap div.zip_search { padding:10px; border-bottom:4px solid #e0e0e0; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search h3 { color:#444444; padding-bottom:10px; line-height:17px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search h3 span { display:block; font-weight:normal; color:#737373; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search table { width:100%; height:100%; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search table tr td.search_keyword input { width:100%; height:24px; border-radius:3px; border:1px solid #3cb878; background:white; color:#555555; box-sizing:border-box; padding:0 5px; font-size:10px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search table tr td.btn_area button { width:52px; height:24px; border-radius:3px; border:transparent; background:#3cb878; cursor:pointer; color:white; margin-left:5px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search table tr td.btn_area button img { width:12px; height:auto; padding-right:5px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_search table tr td.btn_area button span { font-size:10px; }
+
+#sub02_content div.detail div.zipcode_wrap div.zip_result { padding:10px; border-bottom:4px solid #e0e0e0; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result h3 { padding-bottom:10px; line-height:17px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result h3 span { font-weight:normal; color:#2a6ec3; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result p.direction{ padding-bottom:10px; line-height:17px; padding:10px; border:1px solid #0072bc; border-bottom:none; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result p.direction span{color:#2a6ec3; }
+
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul { border:1px solid #0072bc; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li.addr { padding:10px; border-bottom:1px solid #aaaaaa; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li.addr input[type="radio"] { display:none; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li.addr input[type="radio"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 0 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) -22px top no-repeat;
+}
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li.addr input[type="radio"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -33px top no-repeat;
+}
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li.addr dl dt { position:absolute; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li.addr dl dd { padding-left:70px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result ul li:last-child { border-bottom:0; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result div.more{ background:#f2f2f2; text-align:center; cursor:pointer; padding:10px; border:1px solid #0072bc;border-top:none; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result div.more p { display:inline-block; width:12px; }
+#sub02_content div.detail div.zipcode_wrap div.zip_result div.more p img { width:100%; }
+
+#sub02_content div.detail div.zipcode_wrap div.zip_result h3.no_result{margin-top:20px;text-align: center;}
+#sub02_content div.detail div.zipcode_wrap div.zip_result h3.no_result p{height:55px; margin: 0 auto 20px; width: 65px;}
+#sub02_content div.detail div.zipcode_wrap div.zip_result h3.no_result p img{height: auto;width: 100%;}
+
+#sub02_content div.detail div.zipcode_wrap div.detail_adress { }
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.title { padding:10px; border-bottom:1px solid #aaaaaa;}
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.title dt { position:absolute; color:#444444; font-weight:bold; font-size:11px; }
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.title dd { padding-left:75px; font-weight:normal; color:#8a8a8a; font-size:10px; }
+
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.addr { padding:10px 10px 0 10px; border-bottom:4px solid #e0e0e0;}
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.addr dt { position:absolute; color:#444444; font-weight:bold; font-size:11px; }
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.addr dd { padding-left:75px; padding-bottom:10px; font-weight:normal; font-size:11px; }
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.addr dd p { padding-bottom:5px; font-size:11px; }
+#sub02_content div.detail div.zipcode_wrap div.detail_adress dl.addr dd input { width:100%; border:1px solid #aaaaaa; }
+
+
+/* 개인정보 제3자 제공동의 */
+#sub02_content div.detail div.privacy_wrap { padding:10px 10px 20px 10px; }
+#sub02_content div.detail div.privacy_wrap p { font-size:11px; color:#666666; line-height:16px; padding-bottom:8px; }
+#sub02_content div.detail div.privacy_wrap ul { padding-bottom:8px; }
+#sub02_content div.detail div.privacy_wrap ul li { font-size:11px; color:#666666; line-height:16px; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use { width:100%; height:100%; border-bottom:1px solid #aaaaaa; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr:nth-child(1) th { border-top:2px solid #0072bc; border-right:1px solid #aaaaaa; border-bottom:1px solid #0072bc; text-align:center; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr th,
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr td { border-bottom:1px dotted #aaaaaa; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr:nth-last-child(1) th,
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr:nth-last-child(1) td { border-bottom:0; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr th:nth-child(1) { border-left:1px solid #aaaaaa; border-right:1px solid #0072bc; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr th { font-size:11px; color:#0072bc; font-weight:normal; text-align:center; padding:0 5px; height:22px; background:#f2f2f2; }
+#sub02_content div.detail div.privacy_wrap table.privacy_use tr td { border-right:1px solid #aaaaaa; font-size:11px; text-align:center; padding:5px; }
+
+
+/* s03 지식플러스 */
+#sub03_content div.knowledge div.today_content { position:relative; }
+#sub03_content div.knowledge div.today_content h3 { font-size:16px; font-weight:bold; color:#00478c; padding:15px 34px 5px 34px; }
+
+#sub03_content div.knowledge div.today_content div.indicator { position:absolute; right:0; top:15px; }
+#sub03_content div.knowledge div.today_content div.indicator ul li { float:left; padding-left:5px; }
+#sub03_content div.knowledge div.today_content div.indicator ul li p { width:9px; height:9px; }
+#sub03_content div.knowledge div.today_content div.indicator ul li p img { width:100%; height:auto; }
+
+#sub03_content div.knowledge div.today_content div.contents_slide { position:relative; }
+#sub03_content div.knowledge div.today_content div.contents_slide div.btn_left { position:absolute; left:0; top:50%; width:34px; margin-top:-12.5px; cursor:pointer; z-index:100; }
+#sub03_content div.knowledge div.today_content div.contents_slide div.btn_left p { width:16px; height:25px; margin:0 auto; }
+#sub03_content div.knowledge div.today_content div.contents_slide div.btn_left p img { width:100%; height:auto; }
+#sub03_content div.knowledge div.today_content div.contents_slide div.btn_right { position:absolute; right:0; top:50%; width:34px; margin-top:-12.5px; cursor:pointer; z-index:100; }
+#sub03_content div.knowledge div.today_content div.contents_slide div.btn_right p { width:16px; height:25px; margin:0 auto; }
+#sub03_content div.knowledge div.today_content div.contents_slide div.btn_right p img { width:100%; height:auto; }
+#sub03_content div.knowledge div.today_content div.contents_slide ul.contents { padding:0 34px; background:#464646; }
+#sub03_content div.knowledge div.today_content div.contents_slide ul.contents li { width:100%; }
+#sub03_content div.knowledge div.today_content div.contents_slide ul.contents li img { width:100%; height:auto; }
+
+#sub03_content div.knowledge div.main_menu { position:relative; }
+#sub03_content div.knowledge div.main_menu ul { padding:10px 20px; }
+#sub03_content div.knowledge div.main_menu ul li { float:left; width:50%; padding:10px 0; cursor:pointer; }
+#sub03_content div.knowledge div.main_menu ul li p { width:112px; margin:0 auto; }
+#sub03_content div.knowledge div.main_menu ul li p img { width:100%; height:auto; }
+
+/* HRI Report */
+#sub03_content div.hri_board table.board_list { width:100%; height:100%; table-layout:fixed; }
+#sub03_content div.hri_board table.board_list tr th { background:#f1f1f1; font-weight:normal; color:#1451a4; height:26px; font-size:11px; border-bottom:1px solid #aaaaaa; }
+#sub03_content div.hri_board table.board_list tr td { color:#666666; height:28px; border-bottom:1px dotted #cccccc; text-align:center; font-size:11px; }
+#sub03_content div.hri_board table.board_list tr:nth-last-child(1) td { border-bottom:1px solid #aaaaaa; }
+#sub03_content div.hri_board table.board_list tr td.subject { padding:0 5px; }
+#sub03_content div.hri_board table.board_list tr td.subject p { padding:5px 0; }
+#sub03_content div.hri_board table.board_list tr td.subject p { width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+#sub03_content div.hri_board table.board_list tr td.subject a { font-size:11px; color:#666666; }
+#sub03_content div.hri_board table.board_list tr th.attach,
+#sub03_content div.hri_board table.board_list tr td.attach { border-left:1px solid #aaaaaa; border-right:1px solid #aaaaaa; }
+#sub03_content div.hri_board table.board_list tr td.attach p { width:14px; height:14px; margin:0 auto; }
+#sub03_content div.hri_board table.board_list tr td.attach p img { width:100%; height:auto; }
+
+#sub03_content div.hri_view div.subject { padding:10px; border-bottom:1px solid #0072bc; }
+#sub03_content div.hri_view div.subject h3 { color:#0054a6; font-size:13px; }
+#sub03_content div.hri_view div.subject div.info { position:relative; padding-top:5px; font-weight:normal; color:#444444; font-size:11px; }
+#sub03_content div.hri_view div.subject div.info span { color:#888888; }
+#sub03_content div.hri_view div.subject div.info a { color:#888888; }
+#sub03_content div.hri_view div.subject div.info a img { width:18px; height:auto; }
+#sub03_content div.hri_view div.content { padding:10px; }
+#sub03_content div.hri_view div.btn_area { padding:10px 0 17px 0; text-align:center; }
+#sub03_content div.hri_view div.btn_area span { width:15px; display:inline-block; margin-right:8px; }
+#sub03_content div.hri_view div.btn_area span img { width:100%; height:auto; }
+
+/* 체어퍼슨노트 */
+#sub03_content div.chairperson_board table.board_list { width:100%; height:100%; border-top:1px solid #0072bc; table-layout:fixed; }
+#sub03_content div.chairperson_board table.board_list tr th { background:#f1f1f1; font-weight:normal; color:#1451a4; height:26px; font-size:11px; border-bottom:1px solid #aaaaaa; }
+#sub03_content div.chairperson_board table.board_list tr td { color:#666666; height:28px; border-bottom:1px dotted #cccccc; text-align:center; font-size:11px; }
+#sub03_content div.chairperson_board table.board_list tr:nth-last-child(1) td { border-bottom:1px solid #aaaaaa; }
+#sub03_content div.chairperson_board table.board_list tr td.subject { padding:0 5px; }
+#sub03_content div.chairperson_board table.board_list tr td.subject p { padding:5px 0; width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+#sub03_content div.chairperson_board table.board_list tr td.subject a { font-size:11px; color:#666666; }
+#sub03_content div.chairperson_board table.board_list tr th.attach,
+#sub03_content div.chairperson_board table.board_list tr td.attach { border-left:1px solid #aaaaaa; border-right:1px solid #aaaaaa; }
+#sub03_content div.chairperson_board table.board_list tr td.attach p { width:14px; height:14px; margin:0 auto; }
+#sub03_content div.chairperson_board table.board_list tr td.attach p img { width:100%; height:auto; }
+
+#sub03_content div.chairperson_view div.subject { padding:10px; border-bottom:1px solid #0072bc; }
+#sub03_content div.chairperson_view div.subject h3 { color:#0054a6; font-size:13px; }
+#sub03_content div.chairperson_view div.subject div.info { position:relative; padding-top:5px; font-weight:normal; color:#444444; font-size:11px; }
+#sub03_content div.chairperson_view div.content { padding:10px; }
+#sub03_content div.chairperson_view div.btn_area { padding:10px 0 17px 0; text-align:center; }
+#sub03_content div.chairperson_view div.btn_area span { width:15px; display:inline-block; margin-right:8px; }
+#sub03_content div.chairperson_view div.btn_area span img { width:100%; height:auto; }
+
+/* HRI Book */
+#sub03_content article.list { cursor:pointer; border-bottom:4px solid #e0e0e0; }
+#sub03_content article.list table.book_info { width:100%; height:100%; }
+#sub03_content article.list table.book_info tr td.book_img { width:107px; vertical-align:top; }
+#sub03_content article.list table.book_info tr td.book_img img { width:100%; height:auto; }
+#sub03_content article.list table.book_info tr td.book_desc { padding:10px 10px 0; vertical-align:top; }
+#sub03_content article.list table.book_info tr td.book_desc h2 { color:#1451a4; font-weight:bold; }
+#sub03_content article.list table.book_info tr td.book_desc div.info { padding-top:5px; display:inline-block; color:#777777; }
+#sub03_content article.list table.book_info tr td.book_desc div.info dl dt { position:absolute; }
+#sub03_content article.list table.book_info tr td.book_desc div.info dl dd { padding:0 0 3px 43px; line-height:16px; color:#666666; }
+#sub03_content article.list table.book_info tr td.book_desc div.note { padding:10px 0; width:100%; display:table; table-layout:fixed; }
+#sub03_content article.list table.book_info tr td.book_desc div.note p { text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+
+#sub03_content div.book_view div.subject { padding:10px; border-bottom:1px solid #0072bc; }
+#sub03_content div.book_view div.subject h3 { color:#0054a6; font-size:13px; }
+#sub03_content div.book_view div.subject div.info { position:relative; padding-top:5px; font-weight:normal; color:#888888; font-size:11px; }
+#sub03_content div.book_view div.desc { width:100%; display:inline-block; color:#777777; border-bottom:1px solid #0072bc; }
+#sub03_content div.book_view div.desc dl dt { position:absolute; left:10px; color:#444444; padding-top:5px; line-height:16px; }
+#sub03_content div.book_view div.desc dl dd { padding:5px 0 5px 53px; line-height:16px; color:#888888; border-bottom:1px solid #aaaaaa; }
+#sub03_content div.book_view div.desc dl dd:nth-last-child(1) { border-bottom:0; }
+
+#sub03_content div.book_view div.content { padding:10px; line-height:18px; }
+#sub03_content div.book_view div.content div.video { padding-bottom:15px; }
+#sub03_content div.book_view div.content div.video img { width:100%; }
+#sub03_content div.book_view div.content ul.tab_menu { position:relative; padding:10px 0; }
+#sub03_content div.book_view div.content ul.tab_menu li { float:left; width:50%; border:1px solid #ccc; box-sizing:border-box; text-align:center; line-height:22px; background:white; cursor:pointer; }
+#sub03_content div.book_view div.content ul.tab_menu li:nth-child(1) { background:#f1f1f1; }
+#sub03_content div.book_view div.content ul.tab_menu li:nth-last-child(1) { border-left:0; }
+#sub03_content div.book_view div.content ul.tab_menu div.triangle { position:absolute; z-index:10; width:11px; margin-top:-8px; }
+#sub03_content div.book_view div.content ul.tab_menu div.triangle:nth-child(1) { padding-left:25%; margin-left:-6px; }
+#sub03_content div.book_view div.content ul.tab_menu div.triangle:nth-child(2) { padding-left:75%; }
+#sub03_content div.book_view div.content ul.tab_menu div.triangle img { width:100%; }
+
+#sub03_content div.book_view div.btn_area { padding:10px 0 17px 0; text-align:center; }
+#sub03_content div.book_view div.btn_area span { width:15px; display:inline-block; margin-right:8px; }
+#sub03_content div.book_view div.btn_area span img { width:100%; height:auto; }
+
+/* s04 고객센터 */
+#sub04_content table.search_box { width:100%; height:100%; }
+#sub04_content table.search_box tr td.category_select { padding-bottom:6px; }
+#sub04_content table.search_box tr td.category_select select { width:100%; height:23px; }
+#sub04_content table.search_box tr td.search_keyword input { width:100%; height:23px; border-radius:3px; border:1px solid #3cb878; background:white; color:#555555; box-sizing:border-box; padding:0 5px; font-size:10px; }
+#sub04_content table.search_box tr td.btn_area button { width:52px; height:24px; border-radius:3px; border:transparent; background:#3cb878; cursor:pointer; color:white; margin-left:5px; }
+#sub04_content table.search_box tr td.btn_area button img { width:12px; height:auto; padding-right:5px; }
+#sub04_content table.search_box tr td.btn_area button span { font-size:10px; }
+
+/* FAQ */
+#sub04_content div.faq_search { padding:15px 10px 15px 10px; border-bottom:1px solid #2c7ece; }
+#sub04_content div.faq_result h3 { padding:10px; line-height:17px; font-weight:normal; border-bottom:1px solid #aaaaaa; }
+#sub04_content div.faq_result h3 span { font-weight:normal; color:#2a6ec3; }
+#sub04_content div.faq_result article { position:relative; border-bottom:1px solid #aaaaaa; cursor:pointer; background:#f1f1f1; }
+#sub04_content div.faq_result article div.category { padding:10px 10px; float:left; width:27%; color:#2a6ec3;margin-right:10px; position:relative; text-align:center;}
+#sub04_content div.faq_result article div.category span.b_line{position:absolute; right:0}
+#sub04_content div.faq_result article div.subject { padding:10px 0; padding-left:90px; padding-right:30px; color:#444444; }
+#sub04_content div.faq_result article div.btn_arrow { padding:10px; position:absolute; right:0; top:0; }
+#sub04_content div.faq_result article div.btn_arrow p img { width:11px; height:7px; }
+#sub04_content div.faq_result article div.answer { background:white; padding:10px; border-bottom:1px solid #aaaaaa; display:none; }
+
+/* Q&A */
+#sub04_content div.qna_search { padding:15px 10px 15px 10px; border-bottom:1px solid #2c7ece; }
+#sub04_content div.qna_util { position:relative; padding:10px; border-bottom:1px solid #2c7ece; }
+#sub04_content div.qna_util div.chk_area label { font-size:10px; }
+#sub04_content div.qna_util div.chk_area input[type="checkbox"] { display:none; }
+#sub04_content div.qna_util div.chk_area input[type="checkbox"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) left top no-repeat;
+}
+#sub04_content div.qna_util div.chk_area input[type="checkbox"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -11px top no-repeat;
+}
+
+#sub04_content div.qna_util div.btn_area { position:absolute; right:10px; top:6px; }
+#sub04_content div.qna_util div.btn_area img { width:15px; height:auto; margin-top:-3px; padding-right:5px; }
+#sub04_content div.qna_board table.board_list { width:100%; height:100%; }
+#sub04_content div.qna_board table.board_list tr th { background:#f1f1f1; font-weight:normal; color:#1451a4; height:26px; font-size:11px; border-bottom:1px solid #aaaaaa; }
+#sub04_content div.qna_board table.board_list tr td { color:#666666; height:28px; border-bottom:1px dotted #cccccc; text-align:center; font-size:11px; }
+#sub04_content div.qna_board table.board_list tr:nth-last-child(1) td { border-bottom:1px solid #aaaaaa; }
+#sub04_content div.qna_board table.board_list tr td span.answer_y { background:#0072bc; border:transparent; border-radius:3px; color:white; font-size:9px; padding:2px 4px; display:block; width:37px; }
+#sub04_content div.qna_board table.board_list tr td span.answer_n { background:#3cb878; border:transparent; border-radius:3px; color:white; font-size:9px; padding:2px 4px; display:block; width:37px; }
+#sub04_content div.qna_board table.board_list tr td.icon { padding-left:5px; }
+#sub04_content div.qna_board table.board_list tr td.subject { padding:0 5px; }
+#sub04_content div.qna_board table.board_list tr td.subject p { padding:5px 0; }
+#sub04_content div.qna_board table.board_list tr td.subject p a { font-size:11px; color:#666666; }
+#sub04_content div.qna_board table.board_list tr th.writer,
+#sub04_content div.qna_board table.board_list tr td.writer { border-left:1px solid #aaaaaa; border-right:1px solid #aaaaaa; }
+
+#sub04_content div.qna_write h3 { padding:10px; font-weight:normal; border-bottom:1px solid #0072bc; color:#0054a6; }
+#sub04_content div.qna_write table.board_write { width:100%; height:100%; }
+#sub04_content div.qna_write table.board_write tr th { font-size:11px; color:#444444; text-align:center; border-bottom:1px solid #aaaaaa; font-weight:normal; background:#f1f1f1; vertical-align:top; padding-top:10px; }
+#sub04_content div.qna_write table.board_write tr td { font-size:11px; color:#666666; text-align:center; border-bottom:1px solid #aaaaaa; padding:10px;}
+#sub04_content div.qna_write table.board_write tr td input[type=text] { width:100%; border:1px solid #9a9a9a; }
+#sub04_content div.qna_write table.board_write tr td textarea { width:100%; height:165px; padding:5px; box-sizing:border-box; border:1px solid #9a9a9a; }
+#sub04_content div.qna_write table.board_write tr:nth-last-child(1) td { border-bottom:1px solid #aaaaaa; }
+#sub04_content div.qna_write table.board_write tr td input[type="radio"] { display:none; }
+#sub04_content div.qna_write table.board_write tr td input[type="radio"] + label span.trick {
+    display:inline-block;
+    width:11px;
+    height:11px;
+    margin:-1px 0 0 10px;
+    vertical-align:middle;
+    cursor:pointer;
+    background:url(../images/course/check_sheet.png) -22px top no-repeat;
+}
+#sub04_content div.qna_write table.board_write tr td input[type="radio"]:checked + label span.trick {
+    background:url(../images/course/check_sheet.png) -33px top no-repeat;
+}
+#sub04_content div.qna_write div.btn_area { padding:10px 0 17px 0; text-align:center; }
+
+#sub04_content div.qna_view div.subject { padding:10px; border-bottom:1px solid #0072bc; }
+#sub04_content div.qna_view div.subject h3 { color:#0054a6; font-size:13px; }
+#sub04_content div.qna_view div.subject div.info { position:relative; padding-top:5px; font-weight:normal; color:#444444; font-size:11px; }
+#sub04_content div.qna_view div.subject div.info span { color:#888888; }
+#sub04_content div.qna_view div.subject div.info a { color:#888888; }
+#sub04_content div.qna_view div.subject div.info a img { width:18px; height:auto; }
+#sub04_content div.qna_view div.subject div.info div.attach_wrap { position:relative; display:inline-block; }
+/* #sub04_content div.qna_view div.subject div.info div.attach_wrap dl.attach { position:absolute; right:0; top:25px; border:1px solid #cccccc; background:#f1f1f1; padding:10px; display:none; } */
+#sub04_content div.qna_view div.subject div.info div.attach_wrap dl.attach { position:absolute; right:0; top:25px; border:1px solid #cccccc; background:#f1f1f1; width:100px; padding:10px; display:none; }
+#sub04_content div.qna_view div.subject div.info div.attach_wrap dl.attach dd{margin-top:10px;}
+#sub04_content div.qna_view div.subject div.info div.attach_wrap dl.attach dd:first-child{margin-top:0}
+#sub04_content div.qna_view div.content { padding:10px; border-bottom:1px solid #0072bc; }
+#sub04_content div.qna_view div.comment { padding:10px 0; background:#f1f1f1; }
+#sub04_content div.qna_view div.comment dl.comment { padding:0 10px; border-bottom:1px solid #aaaaaa; }
+#sub04_content div.qna_view div.comment dl.comment dt { position:absolute; color:#444444; font-weight:bold; }
+#sub04_content div.qna_view div.comment dl.comment dd { padding-left:35px; padding-bottom:10px; }
+#sub04_content div.qna_view div.comment p {padding:10px 10px 0}
+#sub04_content div.qna_view div.comment dl.attach { padding:10px; }
+#sub04_content div.qna_view div.comment dl.attach dt { position:absolute; color:#444444; font-weight:bold; }
+#sub04_content div.qna_view div.comment dl.attach dd { padding-left:35px; }
+#sub04_content div.qna_view div.comment dl.attach dd a { color:#555555; }
+
+
+#sub04_content div.notice_board table.board_list { width:100%; height:100%; }
+#sub04_content div.notice_board table.board_list tr th { background:#f1f1f1; font-weight:normal; color:#1451a4; height:26px; font-size:11px; border-bottom:1px solid #aaaaaa; }
+#sub04_content div.notice_board table.board_list tr td { color:#666666; height:28px; border-bottom:1px dotted #cccccc; text-align:center; font-size:11px; }
+#sub04_content div.notice_board table.board_list tr:nth-last-child(1) td { border-bottom:1px solid #aaaaaa; }
+#sub04_content div.notice_board table.board_list tr.notice td,
+#sub04_content div.notice_board table.board_list tr.notice td a { color:#3cb878 !important; }
+#sub04_content div.notice_board table.board_list tr td.subject { padding:0 5px; }
+#sub04_content div.notice_board table.board_list tr td.subject p { padding:5px 0; }
+#sub04_content div.notice_board table.board_list tr td.subject a { font-size:11px; color:#666666; }
+#sub04_content div.notice_board table.board_list tr th.subject,
+#sub04_content div.notice_board table.board_list tr td.subject { border-left:1px solid #aaaaaa; border-right:1px solid #aaaaaa; }
+
+#sub04_content div.notice_view div.subject { padding:10px; border-bottom:1px solid #0072bc; }
+#sub04_content div.notice_view div.subject h3 { color:#0054a6; font-size:13px; }
+#sub04_content div.notice_view div.subject div.info { position:relative; padding-top:5px; font-weight:normal; color:#444444; font-size:11px; }
+#sub04_content div.notice_view div.subject div.info span { color:#888888; }
+#sub04_content div.notice_view div.subject div.info a { color:#888888; }
+#sub04_content div.notice_view div.subject div.info a img { width:18px; height:auto; }
+#sub04_content div.notice_view div.subject div.info div.attach_wrap { position:relative; display:inline-block; }
+/* #sub04_content div.notice_view div.subject div.info div.attach_wrap dl.attach { position:absolute; right:0; top:25px; border:1px solid #cccccc; background:#f1f1f1; padding:10px; display:none; } */
+#sub04_content div.notice_view div.subject div.info div.attach_wrap dl.attach { position:absolute; right:0; top:25px; border:1px solid #cccccc; background:#f1f1f1; width:100px; padding:10px; display:none; }
+#sub04_content div.notice_view div.subject div.info div.attach_wrap dl.attach dd{margin-top:10px;}
+#sub04_content div.notice_view div.subject div.info div.attach_wrap dl.attach dd:first-child{margin-top:0}
+#sub04_content div.notice_view div.content { padding:10px; }
+
+#sub04_content div.guide { padding-bottom:20px; }
+#sub04_content div.guide h3 { padding:10px; border-bottom:1px solid #0072bc; color:#0054a6; }
+#sub04_content div.guide ul.guide_content { padding:10px; }
+#sub04_content div.guide ul.guide_content li { line-height:17px; padding-left:10px; text-indent:-14px; margin-bottom:5px; }
+#sub04_content div.guide ul.guide_content li:before { content:"\2022"; color:#547fbb; }
+#sub04_content div.guide div.guide_img { padding:0 20px; }
+#sub04_content div.guide div.guide_img img { max-width:100%; height:auto; }
+
+/*QnA 수정 삭제 버튼*/
+#sub04_content div.btn_area_qna{ padding:15px 0; text-align:center;}
+button.btn_style_s1{ width:28%; height:30px; background:#08c162; border:transparent; border-radius:3px; font-size:13px; font-weight:bold; color:white; box-shadow:0px 2px 0px #13A45A; cursor:pointer; }
+button.btn_style_s2{ width:28%; height:30px; background:#3081d1; border:transparent; border-radius:3px; font-size:13px; font-weight:bold; color:white; box-shadow:0px 2px 0px #236bb2; cursor:pointer; }
+button.btn_style_s_gr{ width:30%; height:30px; background:#bbb; border:transparent; border-radius:3px; font-size:13px; color:white; box-shadow:0px 2px 0px #999; cursor:auto}
+
+
+/*이용가이드*/
+#sub04_content dl.guide_notice{ padding: 10px; position: relative;}
+#sub04_content dl.guide_notice dt p{height: 14px; padding-bottom: 10px; width: 57px;}
+#sub04_content dl.guide_notice dt p img{height: auto; width: 100%;}
+#sub04_content dl.guide_notice dd ul.notice_list{color: #555555;}
+#sub04_content dl.guide_notice dd ul.notice_list li{line-height: 17px;}
+#sub04_content dl.guide_notice dd ul.notice_list li:before {color: #547fbb; content: "\2022";}
+#sub04_content div.guide_detail div.info_title{ background: none repeat scroll 0 0 #7da7d9; color: white; font-weight: bold; height: 30px; padding: 0 10px; position: relative;}
+#sub04_content div.guide_detail div.info_title span{line-height:30px}
+#sub04_content div.guide_detail div.info_title div.btn_arrow{border-left: 1px solid white; cursor: pointer; height: 100%; padding: 0 10px; position: absolute; right: 0; top: 0;}
+#sub04_content div.guide_detail div.info_title div.btn_arrow p{display: inline-block; line-height: 30px; padding-right: 3px; width: 10px;}
+#sub04_content div.guide_detail div.info_title div.btn_arrow p img{height: 7px; width: 11px;}
+#sub04_content div.guide_detail div.info_wrap{border-bottom: 4px solid #e0e0e0;}
+#sub04_content div.guide_detail div.info_wrap ul.guide_cont{padding:10px}
+#sub04_content div.guide_detail div.info_wrap ul.guide_cont li{color: #666666; font-size: 11px; line-height: 17px;}
+#sub04_content div.guide_detail div.info_wrap ul.guide_cont li:before {color: #547fbb; content: "\2022";}
+#sub04_content div.guide_detail div.info_wrap ul.guide_cont li p{margin-top:10px}
+#sub04_content div.guide_detail div.info_wrap ul.guide_cont li p img{height: auto; width: 60%;border:1px solid #999}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt{padding:10px}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt li{color: #666666; font-size: 11px; line-height: 17px;}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt li span.num{margin-right:5px; color:#0072bc; font-family: tahoma; font-weight: bold; font-size: 11px;}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt li p{margin-top:10px}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt li p img{height: auto; width: 60%;border:1px solid #999}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt li div.icon{padding: 5px 0 10px;}
+#sub04_content div.guide_detail div.info_wrap ol.guide_txt li div.icon span.green{background: none repeat scroll 0 0 #7ac2cf; border: medium none transparent; border-radius: 3px; color: white; font-size: 10px; padding: 2px 4px;}
+
+
+/* 서브 공통 페이지 */
+#sub_common_content div.search_result ul { padding-top:105px; }
+#sub_common_content div.search_result ul li { text-align:center; }
+#sub_common_content div.search_result ul li.icon p { width:61px; height:53px; margin:0 auto; }
+#sub_common_content div.search_result ul li.icon p img { width:100%; height:auto; }
+#sub_common_content div.search_result ul li.txt { font-size:13px; color:#009749; padding-top:18px; }
+
+#sub_common_content div.error_unknown ul { padding-top:65px; }
+#sub_common_content div.error_unknown ul li { text-align:center; }
+#sub_common_content div.error_unknown ul li.icon p { width:61px; height:53px; margin:0 auto; }
+#sub_common_content div.error_unknown ul li.icon p img { width:100%; height:auto; }
+#sub_common_content div.error_unknown ul li.txt { padding-top:18px; }
+#sub_common_content div.error_unknown ul li.txt span { color:#009749; display:block; }
+#sub_common_content div.error_unknown ul li.txt span.txt1 { font-size:13px; }
+#sub_common_content div.error_unknown ul li.txt p { font-size:11px; }
+#sub_common_content div.error_unknown div.btn_area { padding-top:20px; text-align:center; }
+
+#sub_common_content div.error_offline ul { padding-top:65px; }
+#sub_common_content div.error_offline ul li { text-align:center; }
+#sub_common_content div.error_offline ul li.icon p { width:65px; height:55px; margin:0 auto; }
+#sub_common_content div.error_offline ul li.icon p img { width:100%; height:auto; }
+#sub_common_content div.error_offline ul li.txt { padding-top:18px; }
+#sub_common_content div.error_offline ul li.txt span { font-size:13px; color:#009749; display:block; }
+#sub_common_content div.error_offline ul li.txt p { font-size:11px; }
+#sub_common_content div.error_offline div.btn_area { padding-top:10px; text-align:center; }
+
+
+/* footer */
+footer { position:fixed; left:0; bottom:0; width:100%; height:21px; text-align:center; background:#17C75C; z-index:1000; }
+footer ul { padding:0; box-sizing:border-box; }
+footer ul li { float:left; width:20%; height:51px; text-align:center; cursor:pointer; }
+footer ul li div.desc { display:table; width:100%; height:100%; }
+footer ul li div.desc div.wrap { display:table-cell; vertical-align:middle; }
+footer ul li div.desc div.wrap p { width:26px; height:24px; margin:0 auto; padding-bottom:2px; padding-top:3px; }
+footer ul li div.desc div.wrap p img{ width:100%; height:auto; }
+footer ul li div.desc div.wrap span { font-size:11px; color:white; }
+
+footer button { border:transparent; background:transparent; }
+footer div.btn_left { position:absolute; left:0; top:0; line-height:51px; border-right:1px solid #dfdfdf; padding:0 4px; background:#464646; display:none; z-index:100; cursor:pointer; }
+footer div.btn_right { position:absolute; right:0; top:0; line-height:51px; border-left:1px solid #dfdfdf; padding:0 4px; background:#464646; display:none; z-index:100; cursor:pointer; }
+footer div.footer_menu_slider { position:relative; overflow:hidden; width:100%; }
+footer div.footer_menu_slider ul.main_menu { position:relative; }
+
+footer div.creative_tv { position:absolute; margin-top:-30px; width:100%; height:30px; background:#898989; text-align:left; padding:0 10px; box-sizing:border-box; display:table; }
+footer div.creative_tv div.note { font-size:10px; color:white; vertical-align:middle; display:table-cell; }
+footer div.creative_tv div.note span { width:69px; display:inline-block; padding-right:5px; }
+footer div.creative_tv div.note span img { width:100%; margin-top:-3px; }
+footer div.creative_tv div.more { font-size:10px; color:white; position:absolute; right:0; top:0; line-height:30px; border-left:1px solid #c7c7c7; padding-left:10px; box-sizing:border-box; cursor:pointer; }
+footer div.creative_tv div.more p { width:6px; display:inline-block; padding:0 10px 0 5px; }
+footer div.creative_tv div.more p img { width:100%; height:auto; }

@@ -1,0 +1,110 @@
+@charset "euc-kr"; 
+
+/*@import url("../css/font.css");*/
+
+/* reset */   
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,abbr,address,cite,code,del,dfn,em,img,
+ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,
+menu,nav,section,summary,time,mark,audio,video,button {margin:0; padding:0;}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+
+* {margin:0; padding:0; -webkit-text-size-adjust:none;}
+li {list-style-type:none;}
+img,fieldset,iframe {border:0px none;}
+img,fieldset {border:none; vertical-align:middle;}
+li img, dd img {vertical-align:middle;}
+input {vertical-align:middle;}
+hr, caption {display:none;}
+a {text-decoration:none; color:#000;}
+a:link {text-decoration:none; color:#000;}
+a:visited {text-decoration:none; color:#000;}
+a:hover {text-decoration:none; color:#0024ff;}
+a:active {text-decoration:none; color:#000;}
+
+table, th, td {margin:0px}
+
+#skip, .skip {font-size:0; width:0; height:0; line-height:0; position:absolute; left:-9999px;}
+
+h1,h2,h3,h4,h5,h6 {font-size:100%;}
+address,strong {font-style:normal; font-weight:normal;}
+
+/* 폰트 정의 */
+@font-face{font-family:"NBarun"; src:url("../font/NanumBarunGothic.woff") format("woff"); }
+@font-face{font-family:"NBarunB"; src:url("../font/NanumBarunGothicBold.woff") format("woff"); }
+@font-face{font-family:"NGothic"; src:url("../font/NanumGothic.woff") format("woff"); }
+@font-face{font-family:"NGothicB"; src:url("../font/NanumGothicBold.woff") format("woff"); }
+@font-face{font-family:"NGothicEB"; src:url("../font/NanumGothicExtraBold.woff") format("woff"); }
+@font-face{font-family:"NGothicL"; src:url("../font/NanumGothicLight.woff") format("woff"); }
+
+html, body {height:100%; *height:auto}
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select {
+    font-size:12px; font-family:"NBarun", "NGothic", "Sans-serif"; color:#555555;
+}
+button { cursor:pointer; }
+
+strong {font-weight:bold;}
+/*img {max-width:100%;}*/
+
+/* 최대 레이아웃 정의 */
+.w_1200 {width:1200px !important; margin:0 auto; position:relative;} 
+
+/* IR 시리즈 속성 정의 */
+.ir {text-indent:-5000px; overflow:hidden; display:inline-block;}
+
+/* align */
+.t_left{text-align:left !important;} .t_center{text-align:center !important;} .t_right{text-align:right !important;}
+
+/* float */
+.f_left {float:left}
+.f_right {float:right}
+.f_clear {clear:both}
+.clear:after {display:block; overflow:hidden; zoom:1; _zoom:1; clear:both; height:0px; visibility:hidden; content:"\2022";}
+	
+/* none 시리즈 속성 정의 */
+.none_bor {border:none !important;}
+.none_bg {background:none !important;}
+.none_dp {display:none !important;}
+.none_ma {margin:0px !important;}
+.none_pa {padding:0px !important;}
+.none_clear {clear:both  !important;}
+
+.blind { visibility:hidden; overflow:hidden; position:absolute; left:-999em; width:0px; height:0px; font-size:0px; line-height:0; }
+
+/* font style 시리즈 속성 정의 */
+.normal {font-weight:normal !important;}
+.bold {font-weight:bold !important;}
+.underline {text-decoration:underline !important;}
+.line_through {text-decoration:line-through !important;}
+.italic {font-style:italic !important;}
+.f11 {font-size:11px !important;}
+.f12 {font-size:12px !important;}
+.f13 {font-size:13px !important;}
+.f14 {font-size:14px !important;}
+.f16 {font-size:16px !important;}
+.red {color:red;}
+.blue {color:blue;}
+
+/* form 시리즈 속성 정의 */   
+input.radio {display:block;} 
+input.check {display:block;} 
+
+/* display */
+.block_dp {display:block}
+
+/* 공통패딩 */
+.pt5{padding-top:5px;} .pt10{padding-top:10px;} .pt15{padding-top:15px;} .pt20{padding-top:20px;} .pt25{padding-top:25px;} .pt30{padding-top:30px;} .pt35{padding-top:35px;} .pt40{padding-top:40px;}.pt60{padding-top:60px;}
+.pb5{padding-bottom:5px;} .pb10{padding-bottom:10px;} .pb15{padding-bottom:15px;} .pb20{padding-bottom:20px;} .pb25{padding-bottom:25px;} .pb30{padding-bottom:30px;} .pb35{padding-bottom:35px;}.pb40{padding-bottom:40px;} .pb60{padding-bottom:60px;}
+.pl5{padding-left:5px;} .pl10{padding-left:10px;} .pl15{padding-left:15px;} .pl20{padding-left:20px;} .pl25{padding-left:25px;} .pl30{padding-left:30px;} .pl35{padding-left:35px;} .pl40{padding-left:40px;}
+.pr5{padding-right:5px;} .pr10{padding-right:10px;} .pr15{padding-right:15px;} .pr20{padding-right:20px;} .pr25{padding-right:25px;} .pr30{padding-right:30px;} .pr35{padding-right:35px;}.pr40{padding-right:40px;}
+.padd5{padding:5px;} .padd10{padding:10px;} .padd15{padding:15px;} .padd20{padding:20px;} .padd25{padding:25px;} .padd30{padding:30px;} .padd35{padding:35px;} .padd40{padding:40px;}
+
+/* 공통마진 */
+.mt5{margin-top:5px;} .mt10{margin-top:10px;} .mt15{margin-top:15px;} .mt20{margin-top:20px;} .mt25{margin-top:25px;} .mt30{margin-top:30px;} .mt35{margin-top:35px;} .mt40{margin-top:40px;}
+.mb5{margin-bottom:5px;} .mb10{margin-bottom:10px;} .mb15{margin-bottom:15px;} .mb20{margin-bottom:20px;} .mb25{margin-bottom:25px;} .mb30{margin-bottom:30px;} .mb35{margin-bottom:35px;} .mb40{margin-bottom:40px;}
+.ml5{margin-left:5px;} .ml10{margin-left:10px;} .ml15{margin-left:15px;} .ml20{margin-left:20px;} .ml25{margin-left:25px;} .ml30{margin-left:30px;} .ml35{margin-left:35px;} .ml40{margin-left:40px;}
+.mr5{margin-right:5px;} .mr10{margin-right:10px;} .mr15{margin-right:15px;} .mr20{margin-right:20px;} .mr25{margin-right:25px;} .mr30{margin-right:30px;} .mr35{margin-right:35px;} .mr40{margin-right:40px;}
+.margin5{margin:5px;} .margin10{margin:10px;} .margin15{margin:15px;} .margin20{margin:20px;} .margin25{margin:25px;} .margin30{margin:30px;} .margin35{margin:35px;}
